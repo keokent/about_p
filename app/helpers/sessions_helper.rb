@@ -1,6 +1,7 @@
 module SessionsHelper
 
   def sign_in(user)
+    params[:github_id] = nil
     cookies.permanent[:remember_token] = user.remember_token
     self.current_user = user
   end
