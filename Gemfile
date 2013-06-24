@@ -16,6 +16,8 @@ gem 'turbolinks'
 
 gem 'jbuilder', '~> 1.0.1'
 
+gem 'forgery'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
