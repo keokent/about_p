@@ -8,4 +8,9 @@ describe Section do
   subject { @section }
   
   it { should respond_to(:name) }
+  
+  describe "when name is not present" do
+    before { @section.name = "" }
+    it { should_not be_valid }
+  end
 end
