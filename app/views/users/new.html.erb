@@ -1,0 +1,45 @@
+<table>
+<%= form_for(@user) do |f| %>
+  <tr>
+    <th><%= f.label :name %></th>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  
+  <tr>
+    <th><%= f.label :nickname %></th>
+    <td><%= f.text_field :nickname %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :irc_name %></th>
+    <td><%= f.text_field :irc_name %></td>
+  </tr>
+
+  <%#= f.label :face_image %>
+  <%#= f.file_field :face_image %>
+
+  <%#= f.label :section_id %>
+  <%#= f.label :job_type %>
+
+  <tr>
+    <th><%= f.label :birthday %></th>
+    <td><%= f.text_field :birthday %></td>
+  </tr>
+  
+  <tr>
+    <th><%= f.label :background %></th>
+    <td><%= f.text_area :background %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :hobby %></th>
+    <td><%= f.text_area :hobby %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :free_space %></th>
+    <td><%= f.text_area :free_space %></td>
+  </tr>
+</table>
+
+<% end %>
