@@ -23,6 +23,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'omniauth'
+gem 'omniauth-github'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
