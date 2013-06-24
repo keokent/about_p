@@ -14,5 +14,10 @@ class CreateUsers < ActiveRecord::Migration
       t.text :free_space
       t.timestamps
     end
+
+    add_index :users, :id
+    add_index :users, :github_id
+    add_index :users, :nickname
+    add_index :users, :irc_name
   end
 end
