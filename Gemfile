@@ -25,6 +25,7 @@ end
 
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'settingslogic'
 
 group :development, :test do
   gem 'sqlite3'
