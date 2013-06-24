@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20130624064747) do
 
   create_table "sections", force: true do |t|
     t.string   "name"
-    t.binary   "icon"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,7 +23,6 @@ ActiveRecord::Schema.define(version: 20130624064747) do
     t.string   "name"
     t.string   "nickname"
     t.string   "irc_name"
-    t.binary   "face_image"
     t.integer  "section_id"
     t.integer  "job_type"
     t.string   "github_id"
