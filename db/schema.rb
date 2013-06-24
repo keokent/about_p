@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20130624064747) do
     t.string   "nickname"
     t.string   "irc_name"
     t.integer  "section_id"
-    t.integer  "job_type"
+    t.string   "job_type"
     t.string   "github_id"
     t.string   "birthday"
     t.text     "background"
