@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     user = User.find_by(github_id: auth["uid"])
     unless user
       session[:github_id] = auth["uid"]
-      redirect_to new_user 
+      redirect_to new_user_path
     end
   end
 
