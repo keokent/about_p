@@ -13,4 +13,25 @@ describe Section do
     before { @section.name = "" }
     it { should_not be_valid }
   end
+
+  describe "hasmany " do    
+     
+    before { @section.save }
+    let!(:user1) do
+      @section.users.create(name: "Kenta Takeo",
+                            job_type: 1,
+                            github_id: "keokent",
+                            irc_name:"keoken" )
+    end
+    let!(:user2) do
+      @section.users.create(name: "Keisuke Kita",
+                            job_type: 1,
+                            github_id: "kitak",
+                            irc_name:"kitak" )
+    end
+
+    it "hasmany_test" do
+      expect(@section.users.to_a).to eq [user1, user2]
+    end
+  end
 end

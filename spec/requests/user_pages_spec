@@ -1,0 +1,10 @@
+require 'spec_helper'
+
+describe "UserPages" do
+
+  subject { page }
+
+  describe "index" do
+
+  end
+end
