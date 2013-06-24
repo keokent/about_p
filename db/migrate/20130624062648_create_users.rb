@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :job_type
       t.string :github_id
       t.string :birthday
-      t.text :backgroud
+      t.text :background
       t.text :hobby
       t.text :free_space
       t.timestamps
