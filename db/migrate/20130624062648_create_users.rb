@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :nickname
       t.string :irc_name
-      t.blob   :face_image
+      t.binary   :face_image
       t.integer :section_id
       t.integer :job_type
       t.string :github_id
