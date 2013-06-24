@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :job_type, presence: true
   validates :github_id, presence: true
   validates :irc_name, presence: true
-  before_save :create_random_token
+  before_save :create_remember_token
 
   private
   def create_remember_token

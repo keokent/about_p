@@ -1,5 +1,13 @@
-<table>
 <%= form_for(@user) do |f| %>
+  <% if f.object.errors.any? %>
+    <div>
+      <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p> 
+      <% f.object.errors.full_messages.each do |msg| %>
+        <li>* <%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+<table>
   <tr>
     <th><%= f.label :name %></th>
     <td><%= f.text_field :name %></td>
@@ -41,5 +49,5 @@
     <td><%= f.text_area :free_space %></td>
   </tr>
 </table>
-
+<p><%= f.submit %></p>
 <% end %>

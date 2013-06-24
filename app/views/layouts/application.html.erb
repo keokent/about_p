@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <% if signed_in? %>
+      <%= link_to "Sign out", signout_path, method: "delete" %>
+      <%= link_to "Everyone", users_path %>
+    <% end %>
+  </header>
 
 <%= yield %>
 
