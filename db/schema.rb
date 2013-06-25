@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130624205234) do
+ActiveRecord::Schema.define(version: 20130625061842) do
 
   create_table "sections", force: true do |t|
     t.string   "name"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20130624205234) do
     t.string   "job_type"
     t.string   "irc_name"
     t.string   "nickname"
-    t.string   "birthday"
+    t.date     "birthday"
     t.text     "birthplace"
     t.text     "background"
     t.text     "ppb_carrier"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20130624205234) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
+    t.string   "face_image"
   end
 
   add_index "users", ["github_uid"], name: "index_users_on_github_uid"

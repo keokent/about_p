@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :job_type
       t.string :irc_name
       t.string :nickname
-      t.string :birthday
+      t.date :birthday
       t.text :birthplace
       t.text :background
       t.text :ppb_carrier

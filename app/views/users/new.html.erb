@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <% if f.object.errors.any? %>
     <div>
       <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p> 
@@ -13,8 +13,20 @@
     <td><%= f.text_field :name %></td>
   </tr>
   
-  <%#= f.label :face_image %>
-  <%#= f.file_field :face_image %>
+  <tr>
+    <th><%= f.label :nickname %></th>
+    <td><%= f.text_field :nickname %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :irc_name %></th>
+    <td><%= f.text_field :irc_name %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :face_image %></th>
+    <td><%= f.file_field :face_image %></td>
+  </tr>
 
   <tr>
     <th><%= f.label :section %></th>
@@ -38,7 +50,7 @@
 
   <tr>
     <th><%= f.label :birthday %></th>
-    <td><%= f.text_field :birthday %></td>
+    <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14 %></td>
   </tr>
 
   <tr>

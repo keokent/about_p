@@ -11,6 +11,7 @@
     <% if signed_in? %>
       <%= link_to "Sign out", signout_path, method: "delete" %>
       <%= link_to "Everyone", users_path %>
+      <%= link_to "MyProfile", user_path(current_user) %>
     <% end %>
   </header>
 <div id="content">
