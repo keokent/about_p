@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.github_uid = session[:github_uid]
     # FIX: 一時的に
-    @user.job_type = 1  
     @user.section_id = 1
     if @user.save
       sign_in @user
@@ -31,7 +30,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :nickname, :irc_name, :birthday,
+    params.require(:user).permit(:name, :nickname, :irc_name, :birthday, :job_type,
                                  :background, :hobby, :free_space)
   end
   # Before actions
