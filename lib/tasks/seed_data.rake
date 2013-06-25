@@ -11,4 +11,17 @@ namespace :db do
       Section.create(name: name)
     end
   end
+
+  desc "make dummy with users data"
+  task generate_dummy_users: :environment do
+    14.times do |n|
+      name = Forgery::Name.full_name
+      irc_name = Forgery::Name.full_name
+      section = Section.find_by(name: "ロリポップ！")
+      section.users.create(name: name,
+                           irc_name: irc_name,
+                           job_type: :engineer,
+			   github_uid: "lolipo#{n}")
+    end			   
+  end
 end
