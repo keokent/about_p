@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @sections = Section.all
     @user = User.new
   end
 

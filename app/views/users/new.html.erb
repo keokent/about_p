@@ -26,7 +26,10 @@
   <%#= f.label :face_image %>
   <%#= f.file_field :face_image %>
 
-  <%#= f.label :section_id %>
+  <tr>
+    <th><%= f.label :section %></th>
+    <td><%= f.select :section, Section.all.enum_for(:each_with_index).map { |item, index| [item.name, index] } %></td>
+  </tr>
 
   <tr>
     <th><%= f.label :job_type %></th>
