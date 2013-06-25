@@ -21,13 +21,13 @@ describe Section do
     let!(:user1) do
       @section.users.create(name: "Kenta Takeo",
                             job_type: 1,
-                            github_id: "keokent",
+                            github_uid: "keokent",
                             irc_name:"keoken" )
     end
     let!(:user2) do
       @section.users.create(name: "Keisuke Kita",
                             job_type: 1,
-                            github_id: "kitak",
+                            github_uid: "kitak",
                             irc_name:"kitak" )
     end
     

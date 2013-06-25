@@ -5,7 +5,7 @@ describe User do
     @user = User.new(name: "Kenta Takeo",
                             section_id: 1,
                             job_type: :engineer,
-                            github_id: "1",
+                            github_uid: "1",
                             irc_name: "keoken")
   end
 
@@ -14,7 +14,7 @@ describe User do
   it { should respond_to(:name) }
   it { should respond_to(:section_id) }
   it { should respond_to(:job_type) }
-  it { should respond_to(:github_id) }
+  it { should respond_to(:github_uid) }
   it { should respond_to(:irc_name) }
 
   describe "when name is not present" do
@@ -32,8 +32,8 @@ describe User do
     it { should_not be_valid }
   end
 
-  describe "when github_id is not present" do
-    before { @user.github_id = nil }
+  describe "when github_uid is not present" do
+    before { @user.github_uid = nil }
     it { should_not be_valid }
   end
 

@@ -25,7 +25,7 @@ describe "Authentication" do
         # TODO: job_typeは後からenumerize gemのシンボルを渡すようにすること
         @user = @section.users.create(name: "Keisuke KITA",
                                       irc_name: "kitak",
-                                      github_id: "12345",
+                                      github_uid: "12345",
                                       job_type: 1)
       end
 
