@@ -23,3 +23,6 @@
 
 # Github oauth tokens
 /config/github_tokens.yml
+
+# Carrierwave
+/public/uploads

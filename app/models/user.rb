@@ -15,4 +15,6 @@ class User < ActiveRecord::Base
   end
 
   enumerize :job_type, :in => [:engineer, :designer, :backoffice, :manager, :producer]
+
+  mount_uploader :face_image, FaceImageUploader
 end
