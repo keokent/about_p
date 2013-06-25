@@ -1,6 +1,6 @@
 namespace :db do
   desc "Fill database with section data"
-  task gen_sections: :environment do
+  task generate_sections: :environment do
     %w(ホスティング事業本部 ロリポップ！ ムームードメイン インフラチーム
        福岡カスタマーサービス minne 福岡支社付 EC事業本部 カラーミーショップ
        カラメル 運営支援 グーペ ECカスタマーサービス メディア事業本部 JUGEM heteml 
