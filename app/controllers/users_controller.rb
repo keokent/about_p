@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.github_id = session[:github_id]
+    @user.github_uid = session[:github_uid]
     # FIX: 一時的に
     @user.job_type = 1  
     @user.section_id = 1
@@ -37,11 +37,11 @@ class UsersController < ApplicationController
   # Before actions
   
   def halfway_creation
-    user = User.find_by(github_id: session[:github_id])
-    redirect_to(new_user_path) if session[:github_id] != nil && user == nil
+    user = User.find_by(github_uid: session[:github_uid])
+    redirect_to(new_user_path) if session[:github_uid] != nil && user == nil
   end
 
   def through_github 
-    redirect_to(signin_path) unless session[:github_id]
+    redirect_to(signin_path) unless session[:github_uid]
   end
 end
