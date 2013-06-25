@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :irc_name
       t.integer :section_id
       t.string :job_type
-      t.string :github_id
+      t.string :github_uid
       t.string :birthday
       t.text :background
       t.text :hobby
@@ -15,7 +15,7 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     add_index :users, :id
-    add_index :users, :github_id
+    add_index :users, :github_uid
     add_index :users, :nickname
     add_index :users, :irc_name
   end
