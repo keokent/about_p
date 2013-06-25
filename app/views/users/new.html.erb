@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <% if f.object.errors.any? %>
     <div>
       <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p> 
@@ -23,8 +23,10 @@
     <td><%= f.text_field :irc_name %></td>
   </tr>
 
-  <%#= f.label :face_image %>
-  <%#= f.file_field :face_image %>
+  <tr>
+    <th><%= f.label :face_image %></th>
+    <td><%= f.file_field :face_image %></td>
+  </tr>
 
   <tr>
     <th><%= f.label :section %></th>
