@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :through_github, only: [:new, :create]
 
   def index
+    @sections = Section.all
   end
 
   def new
