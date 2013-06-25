@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+ln -s /home/sqale/etc/github_tokens.yml /home/sqale/current/config/github_tokens.yml
+
