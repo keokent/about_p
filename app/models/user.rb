@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  extend Enumerize
+
   belongs_to :section
   validates :name, presence: true
   validates :section_id, presence: true
@@ -11,4 +13,6 @@ class User < ActiveRecord::Base
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
   end
+
+  enumerize :job_type, :in => [:engineer, :designer, :backoffice, :manager, :producer]
 end
