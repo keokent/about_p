@@ -7,7 +7,7 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
     let(:signin_button_text) { 'Sign in with Github' }
-    let(:create_user_text) { 'Create User' }
+    let(:create_user_text) { '登録する' }
 
     it { should have_content(signin_button_text) }
 
