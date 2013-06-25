@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20130625061842) do
     t.integer  "section_id"
     t.string   "job_type"
     t.string   "github_uid"
-    t.string   "birthday"
+    t.date     "birthday"
     t.text     "birthplace"
     t.text     "hometown"
     t.text     "background"
