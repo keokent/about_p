@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @sections = Section.all
     @user = User.new
   end
 
@@ -15,10 +16,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @section = Section.find_by(id: params[:user][:section])
+    @user = @section.users.build(user_params)
     @user.github_uid = session[:github_uid]
-    # FIX: 一時的に
-    @user.section_id = 1
     if @user.save
       sign_in @user
       redirect_to users_path
@@ -30,8 +30,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :nickname, :irc_name, :birthday, :job_type,
-                                 :background, :hobby, :free_space)
+    params.require(:user).permit(:name, :nickname, :irc_name, :birthday, :job_type, :background, :hobby, :free_space)
   end
   # Before actions
   
