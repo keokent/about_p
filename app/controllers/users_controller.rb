@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class UsersController < ApplicationController
   # TODO: index, showはログインしたユーザしか実行できないが開発のため今は緩める
   before_action :halfway_creation, except: [:new, :create] 
@@ -31,7 +32,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :nickname, :irc_name, :birthday, :job_type, :background, :hobby, :free_space, :face_image)
+    params.require(:user).permit(:name, :nickname, :irc_name, :face_image,
+                                 :job_type,  :birthday, :birthplace, 
+                                 :background, :ppb_carrier, :hometown,
+                                 :hobby, :favorite_food, :favorite_book,
+                                 :club, :strong_point, :free_space)
   end
   # Before actions
   
