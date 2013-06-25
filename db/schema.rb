@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130624205234) do
+ActiveRecord::Schema.define(version: 20130625061842) do
 
   create_table "sections", force: true do |t|
     t.string   "name"
@@ -22,26 +22,27 @@ ActiveRecord::Schema.define(version: 20130624205234) do
   add_index "sections", ["id"], name: "index_sections_on_id"
 
   create_table "users", force: true do |t|
+    t.string   "github_uid"
     t.string   "name"
-    t.string   "nickname"
-    t.string   "irc_name"
     t.integer  "section_id"
     t.string   "job_type"
-    t.string   "github_uid"
-    t.string   "birthday"
+    t.string   "irc_name"
+    t.string   "nickname"
+    t.date     "birthday"
     t.text     "birthplace"
-    t.text     "hometown"
     t.text     "background"
     t.text     "ppb_carrier"
-    t.text     "club"
+    t.text     "hometown"
     t.text     "hobby"
-    t.text     "favorite_book"
     t.text     "favorite_food"
+    t.text     "favorite_book"
+    t.text     "club"
     t.text     "strong_point"
     t.text     "free_space"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
+    t.string   "face_image"
   end
 
   add_index "users", ["github_uid"], name: "index_users_on_github_uid"

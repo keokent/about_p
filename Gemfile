@@ -42,3 +42,8 @@ group :test do
 end
 
 gem 'enumerize'
+gem 'rmagick'
+
+gem 'carrierwave'
+
+gem 'rails-i18n'

@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <% if f.object.errors.any? %>
     <div>
       <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p> 
@@ -23,11 +23,16 @@
     <td><%= f.text_field :irc_name %></td>
   </tr>
 
-  <%#= f.label :face_image %>
-  <%#= f.file_field :face_image %>
+  <tr>
+    <th><%= f.label :face_image %></th>
+    <td><%= f.file_field :face_image %></td>
+  </tr>
 
-  <%#= f.label :section_id %>
-
+  <tr>
+    <th><%= f.label :section %></th>
+    <td><%= f.select :section, Section.all.enum_for(:each_with_index).map { |item, index| [item.name, index+1] } %></td>
+  </tr>
+  
   <tr>
     <th><%= f.label :job_type %></th>
     <td><%= f.select :job_type, User.job_type.options %></td>
@@ -35,7 +40,12 @@
 
   <tr>
     <th><%= f.label :birthday %></th>
-    <td><%= f.text_field :birthday %></td>
+    <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14 %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :birthplace %></th>
+    <td><%= f.text_field :birthplace %></td>
   </tr>
   
   <tr>
@@ -44,14 +54,45 @@
   </tr>
 
   <tr>
+    <th><%= f.label :ppb_carrier %></th>
+    <td><%= f.text_area :ppb_carrier %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :hometown %></th>
+    <td><%= f.text_area :hometown %></td>
+  </tr>
+
+  <tr>
     <th><%= f.label :hobby %></th>
     <td><%= f.text_area :hobby %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :favorite_food %></th>
+    <td><%= f.text_area :favorite_food %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :favorite_book %></th>
+    <td><%= f.text_area :favorite_book %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :club %></th>
+    <td><%= f.text_area :club %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :strong_point %></th>
+    <td><%= f.text_area :strong_point %></td>
   </tr>
 
   <tr>
     <th><%= f.label :free_space %></th>
     <td><%= f.text_area :free_space %></td>
   </tr>
+
 </table>
 <p><%= f.submit %></p>
 <% end %>

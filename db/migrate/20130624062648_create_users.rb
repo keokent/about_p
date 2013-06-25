@@ -1,21 +1,21 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
+      t.string :github_uid
       t.string :name
-      t.string :nickname
-      t.string :irc_name
       t.integer :section_id
       t.string :job_type
-      t.string :github_uid
-      t.string :birthday
+      t.string :irc_name
+      t.string :nickname
+      t.date :birthday
       t.text :birthplace
-      t.text :hometown
       t.text :background
       t.text :ppb_carrier
-      t.text :club
+      t.text :hometown
       t.text :hobby
+      t.text :favorite_food    
       t.text :favorite_book
-      t.text :favorite_food
+      t.text :club    
       t.text :strong_point
       t.text :free_space
       t.timestamps
