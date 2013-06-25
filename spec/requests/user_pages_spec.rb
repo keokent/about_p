@@ -25,21 +25,21 @@ describe "UserPages" do
     before { sign_in }
     describe "no user" do
       it "ユーザ登録ベージにいるべき" do
-        expect(page).to have_button('Create User')
+        expect(page).to have_button('登録する')
       end
     end
 
     describe "不正なデータが入力されたとき" do
       before do
-        fill_in "Name", with: " "
-        select "JUGEM", :from => "Section"
-        select "Engineer", :from => "Job type"
-        fill_in "Irc name", with: "12345"
-        click_button 'Create User'
+        fill_in "名前", with: " "
+        select "JUGEM", :from => "部署"
+        select "エンジニア", :from => "職種"
+        fill_in "IRCの名前", with: "12345"
+        click_button '登録する'
       end
 
       it "エラーが表示されるべき" do
-        expect(page).to have_button('Create User')
+        expect(page).to have_button('登録する')
         expect(page).to have_content('contains 1 error')
       end
     end	   
