@@ -1,3 +1,51 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  padding: 0;
+  margin: 0;
+  color: #333;
+}
+a {
+  text-decoration: underline;
+}
+#header {
+
+}
+#content {
+  padding: 20px;
+  width: 980px;
+  margin: 50px auto;
+  text-align: center;
+}
+#footer {
+
+}
+.logo {
+  color: #00aac3;
+}
+/*login*/
+.btn_login {
+  margin: 50px auto;
+  width: 200px;
+  background: #00aac3;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  height: 50px;
+  & :hover {
+    background: #33BBCF;
+    -webkit-border-radius: 12px;
+            border-radius: 12px;
+  }
+}
+.btn_login a {
+  color: #FFF;
+  line-height: 50px;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  & :hover {
+    background: #FFF;
+  }
+}
