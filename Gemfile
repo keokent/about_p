@@ -41,3 +41,5 @@ gem 'enumerize'
 gem 'rmagick'
 
 gem 'carrierwave'
+
+gem 'rails-i18n'
