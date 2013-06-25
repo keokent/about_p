@@ -8,14 +8,15 @@ describe Section do
   subject { @section }
   
   it { should respond_to(:name) }
+  it { should respond_to(:users) }
   
   describe "when name is not present" do
     before { @section.name = "" }
     it { should_not be_valid }
   end
-
+  
   describe "hasmany " do    
-     
+    
     before { @section.save }
     let!(:user1) do
       @section.users.create(name: "Kenta Takeo",
@@ -29,9 +30,9 @@ describe Section do
                             github_id: "kitak",
                             irc_name:"kitak" )
     end
-
-    it "hasmany_test" do
+    
+    it "should have any users" do
       expect(@section.users.to_a).to eq [user1, user2]
-    end
+      end
   end
 end
