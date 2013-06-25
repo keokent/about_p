@@ -38,5 +38,6 @@ group :test do
 end
 
 gem 'enumerize'
+gem 'rmagick'
 
 gem 'carrierwave'
