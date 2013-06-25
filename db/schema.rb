@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130624064747) do
+ActiveRecord::Schema.define(version: 20130624205234) do
 
   create_table "sections", force: true do |t|
     t.string   "name"
@@ -19,19 +19,35 @@ ActiveRecord::Schema.define(version: 20130624064747) do
     t.datetime "updated_at"
   end
 
+  add_index "sections", ["id"], name: "index_sections_on_id"
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "nickname"
     t.string   "irc_name"
     t.integer  "section_id"
     t.string   "job_type"
-    t.string   "github_id"
+    t.string   "github_uid"
     t.string   "birthday"
+    t.text     "birthplace"
+    t.text     "hometown"
     t.text     "background"
+    t.text     "ppb_carrier"
+    t.text     "club"
     t.text     "hobby"
+    t.text     "favorite_book"
+    t.text     "favorite_food"
+    t.text     "strong_point"
     t.text     "free_space"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["github_uid"], name: "index_users_on_github_uid"
+  add_index "users", ["id"], name: "index_users_on_id"
+  add_index "users", ["irc_name"], name: "index_users_on_irc_name"
+  add_index "users", ["nickname"], name: "index_users_on_nickname"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

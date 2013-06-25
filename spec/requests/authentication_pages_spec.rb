@@ -19,14 +19,13 @@ describe "Authentication" do
     end
 
     context "ユーザを作成済みである" do
-      let(:profile_page_text) { "This is user's profile page."}
+      let(:profile_page_text) { "This is user's profile page"}
       before do
         @section = Section.create(name: "人材開発本部")
-        # TODO: job_typeは後からenumerize gemのシンボルを渡すようにすること
         @user = @section.users.create(name: "Keisuke KITA",
                                       irc_name: "kitak",
                                       github_uid: "12345",
-                                      job_type: 1)
+                                      job_type: :engineer)
       end
 
       it "認証が通ったらプロフィールページへ遷移する" do
