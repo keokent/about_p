@@ -38,3 +38,5 @@ group :test do
 end
 
 gem 'enumerize'
+
+gem 'carrierwave'
