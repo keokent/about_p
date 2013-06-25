@@ -40,7 +40,7 @@
 
   <tr>
     <th><%= f.label :birthday %></th>
-    <td><%= f.text_field :birthday %></td>
+    <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14 %></td>
   </tr>
   
   <tr>
