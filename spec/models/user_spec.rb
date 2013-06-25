@@ -4,7 +4,7 @@ describe User do
   before do
     @user = User.new(name: "Kenta Takeo",
                             section_id: 1,
-                            job_type: 1,
+                            job_type: :engineer,
                             github_id: "1",
                             irc_name: "keoken")
   end
@@ -39,6 +39,16 @@ describe User do
 
   describe "when irc_name is not present" do
     before { @user.irc_name = "" }
+    it { should_not be_valid }
+  end
+
+  describe "when name is too long" do
+    before { @user.name = "a" * 41 }
+    it { should_not be_valid }
+  end
+
+  describe "when irc_name is too long" do
+    before { @user.irc_name = "a" * 41 }
     it { should_not be_valid }
   end
 end
