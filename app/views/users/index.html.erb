@@ -2,10 +2,12 @@
 
 <% @sections.each do |section| %>
   <p><%= section.name %></p>
-  <ul>
-    <% section.users.each do |user| %>
-      <li><%= user.name %></li>
-    <% end %>
-  </ul>
+  <div class="everyone">
+    <ul>
+      <% section.users.each do |user| %>
+        <li><%= user.name %></li>
+     <% end %>
+   </ul>
+  </div>
   <hr>
 <% end %>
