@@ -115,6 +115,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -176,6 +177,7 @@ DEPENDENCIES
   omniauth
   omniauth-github
   rails (= 4.0.0.rc2)
+  rmagick
   rspec-rails
   sass-rails (~> 4.0.0.rc1)
   sdoc
