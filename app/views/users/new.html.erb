@@ -39,16 +39,6 @@
   </tr>
 
   <tr>
-    <th><%= f.label :irc_name %></th>
-    <td><%= f.text_field :irc_name %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :nickname %></th>
-    <td><%= f.text_field :nickname %></td>
-  </tr>
-
-  <tr>
     <th><%= f.label :birthday %></th>
     <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14 %></td>
   </tr>
