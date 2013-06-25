@@ -4,7 +4,16 @@ describe "UserPages" do
 
   subject { page  }
   
+  
+
   describe "index" do
 
   end
+
+  describe "new" do
+    before { sign_in user}    
+
+
+  end	   
+  
 end

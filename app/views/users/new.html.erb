@@ -13,16 +13,6 @@
     <td><%= f.text_field :name %></td>
   </tr>
   
-  <tr>
-    <th><%= f.label :nickname %></th>
-    <td><%= f.text_field :nickname %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :irc_name %></th>
-    <td><%= f.text_field :irc_name %></td>
-  </tr>
-
   <%#= f.label :face_image %>
   <%#= f.file_field :face_image %>
 
@@ -30,15 +20,30 @@
     <th><%= f.label :section %></th>
     <td><%= f.select :section, Section.all.enum_for(:each_with_index).map { |item, index| [item.name, index+1] } %></td>
   </tr>
-
+  
   <tr>
     <th><%= f.label :job_type %></th>
     <td><%= f.select :job_type, User.job_type.options %></td>
   </tr>
 
   <tr>
+    <th><%= f.label :irc_name %></th>
+    <td><%= f.text_field :irc_name %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :nickname %></th>
+    <td><%= f.text_field :nickname %></td>
+  </tr>
+
+  <tr>
     <th><%= f.label :birthday %></th>
     <td><%= f.text_field :birthday %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :birthplace %></th>
+    <td><%= f.text_field :birthplace %></td>
   </tr>
   
   <tr>
@@ -47,14 +52,45 @@
   </tr>
 
   <tr>
+    <th><%= f.label :ppb_carrier %></th>
+    <td><%= f.text_area :ppb_carrier %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :hometown %></th>
+    <td><%= f.text_area :hometown %></td>
+  </tr>
+
+  <tr>
     <th><%= f.label :hobby %></th>
     <td><%= f.text_area :hobby %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :favorite_food %></th>
+    <td><%= f.text_area :favorite_food %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :favorite_book %></th>
+    <td><%= f.text_area :favorite_book %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :club %></th>
+    <td><%= f.text_area :club %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :strong_point %></th>
+    <td><%= f.text_area :strong_point %></td>
   </tr>
 
   <tr>
     <th><%= f.label :free_space %></th>
     <td><%= f.text_area :free_space %></td>
   </tr>
+
 </table>
 <p><%= f.submit %></p>
 <% end %>
