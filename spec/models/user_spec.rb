@@ -42,6 +42,20 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when irc_name format is valid" do
+    before do
+      @user.irc_name = "Bob-tani_away3" 
+    end
+    it { should be_valid}
+  end
+
+  describe "when irc_name format is invalid" do
+    before do
+      @user.irc_name = "5godzilla$"
+    end
+    it { should_not be_valid }
+  end
+
   describe "when name is too long" do
     before { @user.name = "a" * 41 }
     it { should_not be_valid }
