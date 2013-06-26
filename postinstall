@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require "fileutils"
+
+path = "#{ENV['HOME']}/current/public/uploads"
+
+if File.directory?(path)
+  FileUtils.mv(path, "#{path}.old")
+elsif File.symlink?(path)
+  FileUtils.rm(path)
+end
+
+FileUtils.symlink("#{ENV['HOME']}/uploads", path)
+
+`ln -s /home/sqale/etc/github_tokens.yml /home/sqale/current/config/github_tokens.yml`

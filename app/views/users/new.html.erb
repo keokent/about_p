@@ -1,3 +1,4 @@
+<% provide(:title, 'ユーザー作成') %>
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <% if f.object.errors.any? %>
     <div>
