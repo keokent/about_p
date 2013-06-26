@@ -14,7 +14,6 @@
     <% if signed_in? %>
       <li><%= link_to "Everyone", users_path %></li>
       <li><%= link_to "MyProfile", user_path(current_user) %></li>
-      <li><%= link_to "EditProfile", edit_user_path(current_user) %></li>
       <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
     <% end %>
   </ul>
