@@ -9,6 +9,6 @@ namespace :tmp do
       next if tmp.size == 1
       members[tmp[0]] = tmp[1..-1].join("")
     end
-    open("#{Rails.root}/tmp/github_members.json", "w").write members.to_json
+    open("#{Rails.root}/tmp/ppb_members.json", "w").write members.to_json
   end
 end
