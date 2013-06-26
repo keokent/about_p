@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :section_id, presence: true
   validates :job_type, presence: true
   validates :github_uid, presence: true
-  validates :irc_name, presence: true, length: { maximum: 40 }
+  validates :irc_name, presence: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z][a-zA-Z\-\_\^0-9]*\Z/ }, uniqueness: { case_sensitive: false } 
   before_save :create_remember_token
 
   private
