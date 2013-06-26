@@ -1,7 +1,5 @@
 <div id="edit">
 
-<p><%= link_to "EditProfile", edit_user_path(current_user) %></p>
-
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <div class="pro_img">
     <p class="btn_edit_submit"><%= f.submit %></p>
