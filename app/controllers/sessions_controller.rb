@@ -6,7 +6,12 @@ class SessionsController < ApplicationController
 
   def callback
     auth = request.env["omniauth.auth"]
-    # TODO: https://github.com/paperboy-all/all/blob/master/github/members.txtから社員のGithubデータを取得して, auth["info"]["nickname"]に該当しなかったら弾く
+    members = JSON.parse(open("#{Rails.root}/tmp/ppb_members.json").read)
+    unless members.has_key? auth["info"]["nickname"]
+      redirect_to signin_path
+      return
+    end
+
     user = User.find_by(github_uid: auth["uid"])
     if user
       sign_in user
