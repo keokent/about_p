@@ -5,26 +5,26 @@ ja:
       section: 部署
     attributes:
       user:
-        name: 名前
+        name: お名前
         job_type: 職種
         section: 部署
         section_id: 部署
         face_image: 顔写真
         irc_name: IRCの名前
-        nickname: あだな
+        nickname: ニックネーム
         birthday: 誕生日
         birthplace: 出身地
-        background: 経歴
-        ppb_carrier: ペパボでのこれまで
-        hometown: 今住んでいるところ
-        hobby: 趣味
-        favorite_food: すきな食べ物
-        favorite_book: すきな本
-        club: 昔やってた部活
-        strong_point: 私はペパボで一番xxだ
-        free_space: フリースペース
-        married: 既婚未婚
-        ppb_join: 入社時期
+        background: 経歴を教えてください！
+        ppb_carrier: ペパボでは何をしてきましたか？
+        hometown: 今のお住まいはどこですか？
+        hobby: 趣味は何ですか？
+        favorite_food: すきな食べ物は何ですか？
+        favorite_book: すきな本は何ですか？
+        club: 昔やってた部活は何ですか？
+        strong_point: 私はペパボで一番○○なことを教えてください！
+        free_space: その他に伝えたいことをどうぞ！
+        married: 結婚してますか？
+        ppb_join: 入社時期はいつですか？
         twitter_id: Twitterアカウント
         blog_url: ブログURL
       section:
