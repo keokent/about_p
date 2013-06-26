@@ -14,7 +14,7 @@ describe "Authentication" do
     context "ユーザを作成していない" do
       it "認証が通ったらユーザ作成画面が表示される" do
         find(signin_button_selector).click
-        expect(page).to have_selector(signin_button_selector)
+        expect(page).to have_button(create_user_text)
       end
 
       it "ユーザ作成画面から一旦別のページに移動し、認証が必要なページに移動するとユーザ作成ページにリダイレクトする" do
