@@ -8,12 +8,17 @@
 </head>
 <body>
   <header>
+    <div class="logo"></div>
+    <div id="menu">
+      <ul>
     <% if signed_in? %>
-      <%= link_to "Sign out", signout_path, method: "delete" %>
-      <%= link_to "Everyone", users_path %>
-      <%= link_to "MyProfile", user_path(current_user) %>
-      <%= link_to "EditProfile", edit_user_path(current_user) %>
+      <li><%= link_to "Everyone", users_path %></li>
+      <li><%= link_to "MyProfile", user_path(current_user) %></li>
+      <li><%= link_to "EditProfile", edit_user_path(current_user) %></li>
+      <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
     <% end %>
+  </ul>
+  </div>
   </header>
 <div id="content">
   <% flash.each do |key, value| %>

@@ -27,8 +27,46 @@ ul,li {
   margin: 0;
   padding: 0;
 }
-#header {
+li {
+  list-style: none;
+  display: inline-block;
 }
+input,textarea {
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  border: solid 1px #999;
+}
+
+/*header*/
+header {
+  position: relative;
+  height: 60px;
+  width: 980px;
+  margin: 0 auto;
+}
+header .logo {
+  position: absolute;
+  left: 0;
+  background: image-url('logo_dummy.gif');
+  height: 64px;
+  width: 177px;
+}
+#menu {
+  position: absolute;
+  right: 30px;
+  margin-top: 30px;
+}
+#menu a {
+  color: #333;
+  text-decoration: none;
+  &:hover {
+    color: #FFF;
+  }
+}
+#menu li {
+  margin-right: 10px;
+}
+
 #content {
   margin: 50px auto;
   padding: 20px;
@@ -41,43 +79,36 @@ ul,li {
   padding: 0;
   width: 177px;
   height: 64px;
-  background: image-url('logo_dummy.gif') 0 0 no-repeat;
+  background: asset-url('logo_dummy.gif', image) 0 0 no-repeat;
   color: #00aac3;
 }
 
-/*signin*/
+/* signin */
 #signin_wrap {
   text-align: center;
 }
-.btn_login {
+.btn_signin {
   margin: 50px auto;
-  width: 200px;
-  height: 50px;
-  -webkit-border-radius: 12px;
-  border-radius: 12px;
-  background: #00aac3;
-  & :hover {
-    -webkit-border-radius: 12px;
-            border-radius: 12px;
-    background: #33BBCF;
+  width: 260px;
+  height: 52px;
+  background-image: asset-url('btn_signin.png', image);
+  &:hover {
+    opacity: 0.8;
   }
 }
-.btn_login a {
+.btn_signin a {
   display: block;
   width: 100%;
   height: 100%;
   color: #FFF;
   text-decoration: none;
   line-height: 50px;
-  & :hover {
-    background: #FFF;
-  }
 }
 
-/*users*/
+/* users */
 .everyone li {
   display: inline-block;
-  margin-right: 10px;
+  margin: 0 10px 0 10px;
   width: 60px;
   list-style: none;
 }
@@ -90,3 +121,43 @@ ul,li {
  p.section_name {
    margin: 0 auto;
  }
+
+/* edit */
+#edit {
+}
+#edit .form_text {
+  display: inline-block;
+  width: 580px;
+}
+#edit .form_img {
+  display: inline-block;
+  width: 360px;
+}
+#edit input {
+}
+
+#edit input[type="file"] {
+  border: 1px solid #999;
+}
+#edit td {
+  margin-bottom: 20px;
+}
+#edit span.nes {
+  color: #00aac3;
+  font-size: 14px;
+  margin-left: 3px;
+}
+#edit .btn_edit_submit {
+  margin: 20px 0 0 50px;
+}
+#edit .btn_edit_submit input {
+    background: #00aac3;
+  -webkit-border-radius: 6px;
+          border-radius: 6px;
+  border: none;
+  color: #FFF;
+  padding: 10px;
+  &:hover {
+    opacity: 0.8;
+  }
+}
