@@ -1,7 +1,10 @@
 <div id="edit">
-  <div class="form_img"></div>
-  <div class="form_text">
+
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
+  <div class="pro_img">
+    <p class="btn_edit_submit"><%= f.submit %></p>
+  </div>
+  <div class="pro_text">
   <% if f.object.errors.any? %>
     <div>
       <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p>
@@ -10,93 +13,26 @@
       <% end %>
     </div>
   <% end %>
-<table>
-  <tr>
-    <th><%= f.label :name %><span class="nes">*</span></th>
-    <td><%= f.text_field :name %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :nickname %></th>
-    <td><%= f.text_field :nickname %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :irc_name %></th>
-    <td><%= f.text_field :irc_name %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :face_image %></th>
-    <td><%= f.file_field :face_image %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :section %><span class="nes">*</span></th>
-    <td><%= f.select :section, Section.all.enum_for(:each_with_index).map { |item, index| [item.name, index+1] } %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :job_type %><span class="nes">*</span></th>
-    <td><%= f.select :job_type, User.job_type.options %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :birthday %><span class="nes">*</span></th>
-    <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14 %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :birthplace %></th>
-    <td><%= f.text_field :birthplace %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :background %></th>
-    <td><%= f.text_area :background %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :ppb_carrier %></th>
-    <td><%= f.text_area :ppb_carrier %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :hometown %></th>
-    <td><%= f.text_area :hometown %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :hobby %></th>
-    <td><%= f.text_area :hobby %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :favorite_food %></th>
-    <td><%= f.text_area :favorite_food %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :favorite_book %></th>
-    <td><%= f.text_area :favorite_book %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :club %></th>
-    <td><%= f.text_area :club %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :strong_point %></th>
-    <td><%= f.text_area :strong_point %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :free_space %></th>
-    <td><%= f.text_area :free_space %></td>
-  </tr>
-
-</table>
-<p class="btn_edit_submit"><%= f.submit %></p>
+  <ul>
+<li><span class="nes"><%= f.label :name %></span><%= f.text_field :name %></li>
+<li><%= f.label :nickname %><%= f.text_field :nickname %></li>
+<li><%= f.label :face_image %><%= f.text_field :irc_name %></li>
+<li><span class="nes"><%= f.label :section %></span><%= f.select :section, Section.all.enum_for(:each_with_index).map { |item, index| [item.name, index+1] } %></li>
+<li><span class="nes"><%= f.label :job_type %></span><%= f.select :job_type, User.job_type.options %></li>
+<li><span class="nes"><%= f.label :birthday %></span><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_yearv => Time.now.year-14 %></li>
+<li><%= f.label :birthplace %><%= f.text_field :birthplace %></li>
+<li><%= f.label :background %><%= f.text_area :background %></li>
+<li><%= f.label :ppb_carrier %><%= f.text_area :ppb_carrier %></li>
+<li><%= f.label :hometown %><%= f.text_area :hometown %></li>
+<li><%= f.label :hobby %><%= f.text_area :hobby %></li>
+<li><%= f.label :favorite_food %><%= f.text_area :favorite_food %></li>
+<li><%= f.label :favorite_book %><%= f.text_area :favorite_book %></li>
+<li><%= f.label :club %><%= f.text_area :club %></li>
+<li><%= f.label :strong_point %><%= f.text_area :strong_point %></li>
+<li><%= f.label :strong_point %><%= f.text_area :strong_point %></li>
+<li><%= f.label :free_space %></th>
+    <td><%= f.text_area :free_space %></li>
+  </ul>
 <% end %>
 </div>
 </div>
