@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -26,6 +30,16 @@ class UsersController < ApplicationController
       redirect_to users_path
     else
       render 'new'
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      sign_in @user
+      redirect_to @user
+    else
+      render 'edit'
     end
   end
 
