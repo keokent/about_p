@@ -37,11 +37,10 @@
     <th><%= f.label :job_type %></th>
     <td><%= f.select :job_type, User.job_type.options %></td>
   </tr>
-
-  <!-- <tr> -->
-  <!--   <th><%= f.label :birthday %></th> -->
-  <!--   <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14 %></td> -->
-  <!-- </tr> -->
+  <tr>
+    <th><%= f.label :birthday %></th>
+    <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14 %></td>
+  </tr>
 
   <tr>
     <th><%= f.label :birthplace %></th>
