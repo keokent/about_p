@@ -1,7 +1,9 @@
+<div id="profile">
+  <div class="pro_img">
 <p>This is user's profile page.</p>
-
-<%= image_tag @user.face_image_url(:thumb).to_s %>
-
+<%= image_tag @user.face_image_url(:thumb).to_s, :size => "180" %>
+</div>
+<div class="pro_text">
 <p><%= @user.name %></p>
 <p><%= @user.nickname %></p>
 <p><%= @user.irc_name %></p>
@@ -18,5 +20,5 @@
 <p><%= @user.club %></p>
 <p><%= @user.strong_point %></p>
 <p><%= @user.free_space %></p>
-
-
+</div>
+</div>

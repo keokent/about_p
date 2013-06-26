@@ -122,9 +122,13 @@ header .logo {
 /* users */
 .everyone li {
   display: inline-block;
-  margin: 0 5px 0;
+  margin: 0 5px 10px;
   width: 60px;
   list-style: none;
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.2em;
+  vertical-align: top;
 }
 .section_box {
   display: inline-block;
