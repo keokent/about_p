@@ -44,4 +44,21 @@ describe "UserPages" do
       end
     end	   
   end
+
+  describe "show" do
+    let!(:user) { FactoryGirl.create(:user, github_uid:"12345") }
+    
+    before do
+      sign_in user
+      visit user_path(user)
+    end
+    
+    describe "ユーザの登録情報が表示されているべき" do
+      it { should have_content(user.name) }
+      it { should have_content(user.nickname) }
+      it { should have_content(user.irc_name) }
+      it { should have_content(user.section.name) }
+      it { should have_content(user.job_type) }
+    end
+  end
 end
