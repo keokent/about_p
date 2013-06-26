@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show]
-  before_action :correct_user, only: [:edit, :update]
   before_action :halfway_creation, except: [:new, :create] 
   before_action :no_signed_in_user, only: [:new, :create]
   before_action :through_github, only: [:new, :create]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @sections = Section.all
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   # Before actions
   
   def signed_in_user
-    redirect_to signin_url, notice: "サインインしてください"
+    redirect_to signin_url, notice: "サインインしてください" unless signed_in?
   end
 
   def no_signed_in_user
