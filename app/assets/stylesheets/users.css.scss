@@ -183,10 +183,12 @@ header .logo {
   width: 180px;
   display: inline-block;
   text-align: center;
-
 }
 
 /*alert*/
 .alert {
   color: #00aac3;
+  position: absolute;
+  top: 70px;
+  right: 50px;
 }
