@@ -16,17 +16,18 @@ namespace :db do
   task generate_dummy_users: :environment do
     14.times do |n|
       name = Forgery::Name.full_name
-      irc_name = Forgery::Name.full_name
+      irc_name = Forgery::Name.first_name
       section = Section.find_by(name: "ロリポップ！")
-      section.users.create(name: name,
-                           irc_name: irc_name,
-                           job_type: :engineer,
-			   github_uid: "lolipo#{n}")
+      user =  section.users.create(name: name,
+                            irc_name: irc_name,
+              		    job_type: :engineer,
+			    github_uid: "lolipo#{n}")
+      puts user.errors.full_messages
     end	
 
     9.times do |n|
       name = Forgery::Name.full_name
-      irc_name = Forgery::Name.full_name
+      irc_name = Forgery::Name.first_name
       section = Section.find_by(name: "ムームードメイン")
       section.users.create(name: name,
                            irc_name: irc_name,
@@ -36,7 +37,7 @@ namespace :db do
 
     29.times do |n|
       name = Forgery::Name.full_name
-      irc_name = Forgery::Name.full_name
+      irc_name = Forgery::Name.last_name
       section = Section.find_by(name: "福岡カスタマーサービス")
       section.users.create(name: name,
                            irc_name: irc_name,
@@ -46,7 +47,7 @@ namespace :db do
 
     20.times do |n|
       name = Forgery::Name.full_name
-      irc_name = Forgery::Name.full_name
+      irc_name = Forgery::Name.last_name
       section = Section.find_by(name: "カラーミーショップ")
       section.users.create(name: name,
                            irc_name: irc_name,
@@ -56,7 +57,7 @@ namespace :db do
 
     13.times do |n|
       name = Forgery::Name.full_name
-      irc_name = Forgery::Name.full_name
+      irc_name = Forgery::Name.first_name
       section = Section.find_by(name: "カラメル")
       section.users.create(name: name,
                            irc_name: irc_name,
@@ -66,7 +67,7 @@ namespace :db do
 
     16.times do |n|
       name = Forgery::Name.full_name
-      irc_name = Forgery::Name.full_name
+      irc_name = Forgery::Name.last_name
       section = Section.find_by(name: "JUGEM")
       section.users.create(name: name,
                            irc_name: irc_name,
