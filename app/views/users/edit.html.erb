@@ -22,19 +22,20 @@
     <li><span class="nes"><%= f.label :job_type %></span><%= f.select :job_type, User.job_type.options %></li>
     <li><span class="nes"><%= f.label :birthday %></span><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_yearv => Time.now.year-14 %></li>
     <li><%= f.label :birthplace %><%= f.text_field :birthplace %></li>
+    <li><%= f.label :married %><%= f.text_field :married %></li>
     <li><%= f.label :background %><%= f.text_area :background %></li>
+    <li><%= f.label :ppb_join %><%= f.text_field :ppb_join %></li>
     <li><%= f.label :ppb_carrier %><%= f.text_area :ppb_carrier %></li>
     <li><%= f.label :hometown %><%= f.text_area :hometown %></li>
+    <li><%= f.label :twitter_id %><%= f.text_area :twitter_id %></li>
+    <li><%= f.label :blog_url %><%= f.text_area :blog_url %></li>
     <li><%= f.label :hobby %><%= f.text_area :hobby %></li>
     <li><%= f.label :favorite_food %><%= f.text_area :favorite_food %></li>
     <li><%= f.label :favorite_book %><%= f.text_area :favorite_book %></li>
     <li><%= f.label :club %><%= f.text_area :club %></li>
     <li><%= f.label :strong_point %><%= f.text_area :strong_point %></li>
-    <li><%= f.label :strong_point %><%= f.text_area :strong_point %></li>
-    <li><%= f.label :free_space %></th>
-  <td><%= f.text_area :free_space %></li>
-  </ul>
-  <p class="btn_edit_submit"><%= f.submit %></p>
+    <li><%= f.label :free_space %><%= f.text_area :free_space %></li>
+  </ul> 
 <% end %>
 </div>
 </div>
