@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     @user.github_uid = session[:github_uid]
     if @user.save
       sign_in @user
+      flash[:success] = "aboutPへようこそ"
       redirect_to users_path
     else
       render 'new'
