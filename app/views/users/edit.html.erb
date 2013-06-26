@@ -1,7 +1,10 @@
+<div id="edit">
+  <div class="form_img"></div>
+  <div class="form_text">
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <% if f.object.errors.any? %>
     <div>
-      <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p> 
+      <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p>
       <% f.object.errors.full_messages.each do |msg| %>
         <li>* <%= msg %></li>
       <% end %>
@@ -9,10 +12,10 @@
   <% end %>
 <table>
   <tr>
-    <th><%= f.label :name %></th>
+    <th><%= f.label :name %><span class="nes">*</span></th>
     <td><%= f.text_field :name %></td>
   </tr>
-  
+
   <tr>
     <th><%= f.label :nickname %></th>
     <td><%= f.text_field :nickname %></td>
@@ -29,16 +32,16 @@
   </tr>
 
   <tr>
-    <th><%= f.label :section %></th>
+    <th><%= f.label :section %><span class="nes">*</span></th>
     <td><%= f.select :section, Section.all.enum_for(:each_with_index).map { |item, index| [item.name, index+1] } %></td>
   </tr>
-  
+
   <tr>
-    <th><%= f.label :job_type %></th>
+    <th><%= f.label :job_type %><span class="nes">*</span></th>
     <td><%= f.select :job_type, User.job_type.options %></td>
   </tr>
   <tr>
-    <th><%= f.label :birthday %></th>
+    <th><%= f.label :birthday %><span class="nes">*</span></th>
     <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14 %></td>
   </tr>
 
@@ -46,7 +49,7 @@
     <th><%= f.label :birthplace %></th>
     <td><%= f.text_field :birthplace %></td>
   </tr>
-  
+
   <tr>
     <th><%= f.label :background %></th>
     <td><%= f.text_area :background %></td>
@@ -93,5 +96,7 @@
   </tr>
 
 </table>
-<p><%= f.submit %></p>
+<p class="btn_edit_submit"><%= f.submit %></p>
 <% end %>
+</div>
+</div>

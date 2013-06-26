@@ -16,10 +16,16 @@ describe "Authentication" do
         click_link 'Sign in with Github'
         expect(page).to have_button(create_user_text)
       end
+
+      it "ユーザ作成画面から一旦別のページに移動し、認証が必要なページに移動するとユーザ作成ページにリダイレクトする" do
+        click_link 'Sign in with Github'
+        visit 'http://www.yahoo.co.jp'
+        visit users_path 
+        expect(page).to have_button(create_user_text)
+      end
     end
 
     context "ユーザを作成済みである" do
-      let(:profile_page_text) { "This is user's profile page"}
       before do
         @section = Section.create(name: "人材開発本部")
         @user = @section.users.create(name: "Keisuke KITA",
@@ -28,9 +34,9 @@ describe "Authentication" do
                                       job_type: :engineer)
       end
 
-      it "認証が通ったらプロフィールページへ遷移する" do
+      it "認証が通ったらユーザ一覧ページへ移動する" do
         click_link signin_button_text 
-        expect(page).to have_content(profile_page_text) 
+        expect(page).to have_content('みんな') 
       end
     end
 

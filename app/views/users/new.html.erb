@@ -37,6 +37,7 @@
     <th><%= f.label :job_type %></th>
     <td><%= f.select :job_type, User.job_type.options %></td>
   </tr>
+
   <tr>
     <th><%= f.label :birthday %></th>
     <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14 %></td>
@@ -45,11 +46,6 @@
   <tr>
     <th><%= f.label :birthplace %></th>
     <td><%= f.text_field :birthplace %></td>
-  </tr>
-  
-  <tr>
-    <th><%= f.label :background %></th>
-    <td><%= f.text_area :background %></td>
   </tr>
 
   <tr>
@@ -63,33 +59,8 @@
   </tr>
 
   <tr>
-    <th><%= f.label :hobby %></th>
-    <td><%= f.text_area :hobby %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :favorite_food %></th>
-    <td><%= f.text_area :favorite_food %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :favorite_book %></th>
-    <td><%= f.text_area :favorite_book %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :club %></th>
-    <td><%= f.text_area :club %></td>
-  </tr>
-
-  <tr>
     <th><%= f.label :strong_point %></th>
     <td><%= f.text_area :strong_point %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :free_space %></th>
-    <td><%= f.text_area :free_space %></td>
   </tr>
 
 </table>
