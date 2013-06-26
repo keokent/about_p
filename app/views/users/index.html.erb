@@ -1,13 +1,12 @@
-<p>This is index page that shows all users each section.</p>
-
-<% @sections.each do |section| %>
-  <p><%= section.name %></p>
-  <div class="everyone">
-    <ul>
-      <% section.users.each do |user| %>
-        <li><%= user.name %></li>
-     <% end %>
-   </ul>
-  </div>
-  <hr>
-<% end %>
+<div class="everyone">
+  <% @sections.each do |section| %>
+      <div class="section_box">
+        <p><%= section.name %></p>
+           <ul>
+            <% section.users.each do |user| %>
+             <li><%= user.name %></li>
+          <% end %>
+         </ul>
+      </div>
+  <% end %>
+</div>
