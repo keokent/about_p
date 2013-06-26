@@ -14,7 +14,7 @@ ja:
         nickname: あだな
         birthday: 誕生日
         birthplace: 出身地
-        background: 出自
+        background: 経歴
         ppb_carrier: ペパボでのこれまで
         hometown: 今住んでいるところ
         hobby: 趣味
@@ -22,7 +22,11 @@ ja:
         favorite_book: すきな本
         club: 昔やってた部活
         strong_point: 私はペパボで一番xxだ
-        free_space: 自由記入
+        free_space: フリースペース
+        married: 既婚未婚
+        ppb_join: 入社時期
+        twitter_id: Twitterアカウント
+        blog_url: ブログURL
       section:
         name: 部署名
   enumerize:
@@ -32,5 +36,3 @@ ja:
       backoffice: バックオフィス
       manager: マネージャー
       producer: プロデューサー
-
-    

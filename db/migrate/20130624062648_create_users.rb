@@ -9,9 +9,13 @@ class CreateUsers < ActiveRecord::Migration
       t.string :nickname
       t.date :birthday
       t.text :birthplace
+      t.string :married
       t.text :background
+      t.text :ppb_join
       t.text :ppb_carrier
       t.text :hometown
+      t.string :twitter_id
+      t.string :blog_url
       t.text :hobby
       t.text :favorite_food    
       t.text :favorite_book
