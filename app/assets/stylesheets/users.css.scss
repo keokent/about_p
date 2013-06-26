@@ -2,89 +2,91 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  padding: 0;
   margin: 0;
+  padding: 0;
   color: #333;
-  line-height: 1.5em;
   font-size: 12px;
+  line-height: 1.5em;
 }
-
 a {
   text-decoration: underline;
 }
-
 p {
   margin: 0;
   padding: 0;
 }
-
 h1 {
-
 }
-
 h2 {
-
 }
-
 h3 {
   font-size: 16px;
+  font-weight: normal;
 }
-
+ul,li {
+  margin: 0;
+  padding: 0;
+}
 #header {
-
 }
 #content {
+  margin: 50px auto;
   padding: 20px;
   width: 980px;
-  margin: 50px auto;
-  text-align: center;
 }
 #footer {
-
 }
 .logo {
-  color: #00aac3;
-  background-image: image-url('logo_dummy.gif');
-  background-repeat: no-repeat;
+  margin: 0 auto;
+  padding: 0;
   width: 177px;
   height: 64px;
-  margin: 0 auto;
+  background: image-url('logo_dummy.gif') 0 0 no-repeat;
+  color: #00aac3;
 }
 
-/*login*/
+/*signin*/
+#signin_wrap {
+  text-align: center;
+}
 .btn_login {
   margin: 50px auto;
   width: 200px;
-  background: #00aac3;
+  height: 50px;
   -webkit-border-radius: 12px;
   border-radius: 12px;
-  height: 50px;
+  background: #00aac3;
   & :hover {
-    background: #33BBCF;
     -webkit-border-radius: 12px;
             border-radius: 12px;
+    background: #33BBCF;
   }
 }
-
 .btn_login a {
-  color: #FFF;
-  line-height: 50px;
-  text-decoration: none;
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
+  color: #FFF;
+  text-decoration: none;
+  line-height: 50px;
   & :hover {
     background: #FFF;
   }
 }
 
-/*TOP*/
+/*users*/
 .everyone li {
   display: inline-block;
+  margin-right: 10px;
+  width: 60px;
   list-style: none;
-  margin-right: 5px;
 }
-
 .section_box {
-  margin-bottom: 20px;
+  display: inline-block;
+  margin: 0 10px 20px;
+  width: 300px;
+  vertical-align: top;
 }
+ p.section_name {
+   margin: 0 auto;
+ }
