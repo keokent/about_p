@@ -46,6 +46,9 @@ describe "UserPages" do
   end
 
   describe "edit" do
+    let(:new_hometown) { "目黒青葉台" }
+    let(:update_button_text) { "更新する" }
+
     before do
       @section = Section.find_by(name: "人材開発本部")
       @user = @section.users.create(name: "喜多啓介",
@@ -57,7 +60,13 @@ describe "UserPages" do
       visit edit_user_path(@user)
     end 
 
-    it { should have_button('更新する') }
+    it { should have_button(update_button_text) }
     it { should have_selector("input#user_name[value='喜多啓介']")}
+
+    it "項目に入力して更新ボタンを押すと更新されているはず" do
+      fill_in "今住んでいるところ", with: new_hometown
+      click_button update_button_text 
+      expect(@user.reload.hometown).to eq new_hometown
+    end
   end
 end
