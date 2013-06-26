@@ -17,7 +17,12 @@ describe "UserPages" do
   subject { page }
   
   describe "index" do
+    let(:user) { FactoryGirl.create(:user, github_uid: "12345") }
+    before { sign_in user } 
 
+    it "「aboutPへようこそ」とメッセージが表示されるべき" do
+      expect(page).to have_content('aboutPへようこそ')
+    end
   end
 
   describe "new" do 
@@ -43,10 +48,24 @@ describe "UserPages" do
         expect(page).to have_content('error')
       end
     end	   
+
+    describe "正しいデータ入力されたとき" do
+      before do
+        fill_in "名前", with: "喜多啓介"
+        select "人材開発本部", :from => "部署"
+        select "エンジニア", :from => "職種"
+        fill_in "IRCの名前", with: "kitak"
+        click_button '登録する'
+      end
+
+      it "「aboutPへようこそ」とメッセージが表示されるべき" do
+        expect(page).to have_content('aboutPへようこそ')
+      end
+    end
   end
 
   describe "show" do
-    let!(:user) { FactoryGirl.create(:user, github_uid:"12345") }
+    let(:user) { FactoryGirl.create(:user, github_uid:"12345") }
     
     before do
       sign_in user
@@ -80,10 +99,24 @@ describe "UserPages" do
     it { should have_button(update_button_text) }
     it { should have_selector("input#user_name[value='喜多啓介']")}
 
-    it "項目に正しいデータを入力して更新ボタンを押すと更新されているはず" do
-      fill_in "今住んでいるところ", with: new_hometown
-      click_button update_button_text 
-      expect(@user.reload.hometown).to eq new_hometown
+    context "項目に正しいデータを入力して更新ボタンを押したとき" do
+      before do
+        fill_in "今住んでいるところ", with: new_hometown
+        click_button update_button_text 
+      end
+
+      it "データベースの値が更新されるべき" do
+        expect(@user.reload.hometown).to eq new_hometown
+      end
+
+      it "プロフィールページで更新された値が表示されるべき" do
+        expect(page).to have_content(new_hometown)
+      end
+
+      it "「プロフィールを更新しました」とメッセージが表示されるべき" do
+        expect(page).to have_selector('div.alert.alert-success')
+        expect(page).to have_content('プロフィールを更新しました')
+      end
     end
 
     it "項目に不正なデータを入力して更新ボタンを押すとエラーが表示されるはず" do

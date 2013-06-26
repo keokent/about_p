@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
     user = User.find_by(github_uid: auth["uid"])
     if user
       sign_in user
-      redirect_to user_path(user)
+      flash[:success] = "aboutPへようこそ"
+      redirect_to users_path
     else
       session[:github_uid] = auth["uid"]
       redirect_to new_user_path
