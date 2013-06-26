@@ -82,7 +82,7 @@ header .logo {
   padding: 0;
   width: 177px;
   height: 64px;
-  background: asset-url('logo_dummy.gif', image) 0 0 no-repeat;
+  background: asset-url('logo_dummy.gif') 0 0 no-repeat;
   color: #00aac3;
 }
 /*               content              */
@@ -105,7 +105,7 @@ header .logo {
   margin: 50px auto;
   width: 260px;
   height: 52px;
-  background-image: asset-url('btn_signin.png', image);
+  background-image: asset-url('btn_signin.png');
   &:hover {
     opacity: 0.8;
   }
