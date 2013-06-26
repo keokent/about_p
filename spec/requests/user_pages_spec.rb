@@ -63,10 +63,17 @@ describe "UserPages" do
     it { should have_button(update_button_text) }
     it { should have_selector("input#user_name[value='喜多啓介']")}
 
-    it "項目に入力して更新ボタンを押すと更新されているはず" do
+    it "項目に正しいデータを入力して更新ボタンを押すと更新されているはず" do
       fill_in "今住んでいるところ", with: new_hometown
       click_button update_button_text 
       expect(@user.reload.hometown).to eq new_hometown
     end
+
+    it "項目に不正なデータを入力して更新ボタンを押すとエラーが表示されるはず" do
+      fill_in "名前", with: ""
+      click_button update_button_text
+      expect(page).to have_content('error')
+    end
+
   end
 end
