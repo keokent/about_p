@@ -16,6 +16,13 @@ describe "Authentication" do
         click_link 'Sign in with Github'
         expect(page).to have_button(create_user_text)
       end
+
+      it "ユーザ作成画面から一旦別のページに移動し、認証が必要なページに移動するとユーザ作成ページにリダイレクトする" do
+        click_link 'Sign in with Github'
+        visit 'http://www.yahoo.co.jp'
+        visit users_path 
+        expect(page).to have_button(create_user_text)
+      end
     end
 
     context "ユーザを作成済みである" do
