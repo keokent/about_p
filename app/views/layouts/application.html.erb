@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AboutP</title>
+  <title>about p</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +9,9 @@
 <body>
   <header>
     <div class="logo"></div>
+      <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
     <div id="menu">
       <ul>
     <% if signed_in? %>
@@ -20,9 +23,6 @@
   </div>
   </header>
 <div id="content">
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-  <% end %>
 <%= yield %>
 </div>
 </body>
