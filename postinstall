@@ -1,7 +1,7 @@
-#!/user/bin/env ruby
+#!/usr/bin/env ruby
 require "fileutils"
 
-path = "#{ENV['HOME']}/current/uploads"
+path = "#{ENV['HOME']}/current/public/uploads"
 
 if File.directory?(path)
   FileUtils.mv(path, "#{path}.old")
