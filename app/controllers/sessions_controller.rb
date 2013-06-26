@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
       redirect_to users_path
     else
       session[:github_uid] = auth["uid"]
+      session[:github_nickname] = auth["info"]["nickname"]
       redirect_to new_user_path
     end
   end

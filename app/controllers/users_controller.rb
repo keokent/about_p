@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class UsersController < ApplicationController
   before_action :halfway_creation, except: [:new, :create] 
+  before_action :ppb_member, only: [:new, :create]
   before_action :no_signed_in_user, only: [:new, :create]
   before_action :through_github, only: [:new, :create]
   before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show]
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
   def new
     @sections = Section.all
     @user = User.new
+    # フォームにデフォルトで実名とnicknameを表示
   end
 
   def edit
@@ -30,6 +32,9 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "aboutPへようこそ"
+      session[:github_uid] = nil
+      session[:github_nickname] = nil
+      session[:realname] = nil
       redirect_to users_path
     else
       render 'new'
@@ -61,10 +66,21 @@ class UsersController < ApplicationController
   def no_signed_in_user
     redirect_to users_path if signed_in?
   end
+  
+  def ppb_member
+    members = JSON.parse(open("#{Rails.root}/tmp/ppb_members.json").read)
+
+    if members.has_key? session[:github_nickname]
+      session[:realname] = members[session[:github_nickname]] 
+    else
+      flash[:error] = "ペパボの人じゃないひとは入れません！"
+      redirect_to signin_path 
+    end
+  end
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
+    redirect_to(users_path) unless current_user?(@user)
   end
 
   def halfway_creation
