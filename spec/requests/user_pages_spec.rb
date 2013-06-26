@@ -31,6 +31,7 @@ describe "UserPages" do
 
     describe "不正なデータが入力されたとき" do
       before do
+        puts page.html
         fill_in "名前", with: " "
         select "JUGEM", :from => "部署"
         select "エンジニア", :from => "職種"
@@ -39,8 +40,9 @@ describe "UserPages" do
       end
 
       it "エラーが表示されるべき" do
+        puts page.html
         expect(page).to have_button('登録する')
-        expect(page).to have_content('contains 1 error')
+        expect(page).to have_content('error')
       end
     end	   
   end
