@@ -10,12 +10,11 @@ describe "UserPages" do
        スマホサービス 事業開発 petit 経営管理本部 法務 総務 経理財務
        情報システム部 人材開発本部 国際化推進室 ジュゲムカート 内部監査室
        社長室 技術基盤 ブクログ).each do |name|
-      # TODO: iconは用意できたら読み込む
       Section.create(name: name)
     end
   end
 
-  subject { page  }
+  subject { page }
   
   describe "index" do
 
@@ -23,6 +22,7 @@ describe "UserPages" do
 
   describe "new" do 
     before { sign_in }
+
     describe "no user" do
       it "ユーザ登録ベージにいるべき" do
         expect(page).to have_button('登録する')
@@ -40,7 +40,7 @@ describe "UserPages" do
 
       it "エラーが表示されるべき" do
         expect(page).to have_button('登録する')
-        expect(page).to have_content('contains 1 error')
+        expect(page).to have_content('error')
       end
     end	   
   end
@@ -61,4 +61,36 @@ describe "UserPages" do
       it { should have_content(user.job_type) }
     end
   end
+
+  describe "edit" do
+    let(:new_hometown) { "目黒青葉台" }
+    let(:update_button_text) { "更新する" }
+
+    before do
+      @section = Section.find_by(name: "人材開発本部")
+      @user = @section.users.create(name: "喜多啓介",
+                                    job_type: :engineer,
+                                    github_uid: "12345",
+                                    irc_name: "kitak",
+                                    hometown: "渋谷")
+      sign_in @user
+      visit edit_user_path(@user)
+    end 
+
+    it { should have_button(update_button_text) }
+    it { should have_selector("input#user_name[value='喜多啓介']")}
+
+    it "項目に正しいデータを入力して更新ボタンを押すと更新されているはず" do
+      fill_in "今住んでいるところ", with: new_hometown
+      click_button update_button_text 
+      expect(@user.reload.hometown).to eq new_hometown
+    end
+
+    it "項目に不正なデータを入力して更新ボタンを押すとエラーが表示されるはず" do
+      fill_in "名前", with: ""
+      click_button update_button_text
+      expect(page).to have_content('error')
+    end
+  end
+
 end
