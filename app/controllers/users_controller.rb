@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 class UsersController < ApplicationController
-  # TODO: index, showはログインしたユーザしか実行できないが開発のため今は緩める
   before_action :halfway_creation, except: [:new, :create] 
+  before_action :no_signed_in_user, only: [:new, :create]
   before_action :through_github, only: [:new, :create]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @sections = Section.all
@@ -52,6 +54,19 @@ class UsersController < ApplicationController
   end
   # Before actions
   
+  def signed_in_user
+    redirect_to signin_url, notice: "サインインしてください" unless signed_in?
+  end
+
+  def no_signed_in_user
+    redirect_to users_path if signed_in?
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user?(@user)
+  end
+
   def halfway_creation
     user = User.find_by(github_uid: session[:github_uid])
     redirect_to(new_user_path) if session[:github_uid] != nil && user == nil
