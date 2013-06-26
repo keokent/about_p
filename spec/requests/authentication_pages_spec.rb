@@ -19,7 +19,6 @@ describe "Authentication" do
     end
 
     context "ユーザを作成済みである" do
-      let(:profile_page_text) { "This is user's profile page"}
       before do
         @section = Section.create(name: "人材開発本部")
         @user = @section.users.create(name: "Keisuke KITA",
@@ -28,9 +27,9 @@ describe "Authentication" do
                                       job_type: :engineer)
       end
 
-      it "認証が通ったらプロフィールページへ遷移する" do
+      it "認証が通ったらユーザ一覧ページへ移動する" do
         click_link signin_button_text 
-        expect(page).to have_content(profile_page_text) 
+        expect(page).to have_content('みんな') 
       end
     end
 
