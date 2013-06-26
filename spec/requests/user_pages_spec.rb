@@ -17,7 +17,12 @@ describe "UserPages" do
   subject { page }
   
   describe "index" do
+    let(:user) { FactoryGirl.create(:user, github_uid: "12345") }
+    before { sign_in user } 
 
+    it "「aboutPへようこそ」とメッセージが表示されるべき" do
+      expect(page).to have_content('aboutPへようこそ')
+    end
   end
 
   describe "new" do 
@@ -43,10 +48,24 @@ describe "UserPages" do
         expect(page).to have_content('error')
       end
     end	   
+
+    describe "正しいデータ入力されたとき" do
+      before do
+        fill_in "名前", with: "喜多啓介"
+        select "人材開発本部", :from => "部署"
+        select "エンジニア", :from => "職種"
+        fill_in "IRCの名前", with: "kitak"
+        click_button '登録する'
+      end
+
+      it "「aboutPへようこそ」とメッセージが表示されるべき" do
+        expect(page).to have_content('aboutPへようこそ')
+      end
+    end
   end
 
   describe "show" do
-    let!(:user) { FactoryGirl.create(:user, github_uid:"12345") }
+    let(:user) { FactoryGirl.create(:user, github_uid:"12345") }
     
     before do
       sign_in user
