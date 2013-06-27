@@ -2,11 +2,12 @@ class GithubMember
 
   class << self
     def all
-      unless @members
-        puts "load!"
-        @members = JSON.parse(open("#{Rails.root}/tmp/ppb_members.json").read)
-      end
-      @members
+      @members ||= JSON.parse(open("#{Rails.root}/tmp/ppb_members.json").read)
+    end
+
+    def paperboy?(nickname)
+      self.all.has_key? nickname
     end
   end
+
 end
