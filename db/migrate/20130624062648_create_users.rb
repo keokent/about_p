@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :section_id
       t.string :job_type
       t.string :irc_name
+      t.string :github_name
       t.string :nickname
       t.date :birthday
       t.text :birthplace

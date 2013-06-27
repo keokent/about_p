@@ -54,19 +54,29 @@ describe "UserPages" do
         fill_in "お名前", with: "喜多啓介"
         select "人材開発本部", :from => "部署"
         select "エンジニア", :from => "職種"
-        fill_in "IRCの名前", with: "kitak"
+        fill_in "ニックネーム", with: "きたけー"
+        fill_in "IRCの名前", with: "kita_k"
         click_button '登録する'
       end
 
       it "「aboutPへようこそ」とメッセージが表示されるべき" do
         expect(page).to have_content('aboutPへようこそ')
       end
+
+      describe  "プロフィールページで" do
+        let(:user) { User.find_by(irc_name: 'kita_k') }       
+        before { visit user_path(user) }
+        
+        it "GitHub名が自動的に表示されているべき" do
+          expect(page).to have_content('kitak')
+        end
+      end
     end
   end
 
   describe "show" do
     let(:user) { FactoryGirl.create(:user, github_uid:"12345",
-                                     face_image: open(File.expand_path("../../fixtures/icon.jpg", __FILE__))) }
+                                    face_image: open(File.expand_path("../../fixtures/icon.jpg", __FILE__))) }
     
     before do
       sign_in user
