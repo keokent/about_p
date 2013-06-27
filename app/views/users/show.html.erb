@@ -1,5 +1,5 @@
 <div id="profile">
-  <% if request.path_info == user_path(@user) %>
+  <% if request.path_info == user_path(current_user) %>
     <p><%= link_to "プロフィールを編集", edit_user_path(current_user) %></p>
   <% end %>
   <div class="pro_img">
