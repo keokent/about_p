@@ -99,6 +99,17 @@ header .logo {
   background: asset-url('logo_dummy.gif') 0 0 no-repeat;
   color: #00aac3;
 }
+
+/*footer*/
+footer {
+}
+footer p {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  margin: 100px 0 20px;
+}
+
 /*               content              */
 .pro_text {
   display: inline-block;
