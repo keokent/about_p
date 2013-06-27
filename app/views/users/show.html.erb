@@ -5,21 +5,21 @@
 <%= image_tag @user.face_image_url(:thumb).to_s, :size => "180" %>
 </div>
 <div class="pro_text">
-<li class="name"><%= @user.name %></li>
-<li><%= @user.nickname %></li>
-<li><%= @user.irc_name %></li>
-<li><%= @user.github_name %></li>
-<li><%= @user.section.name %></li>
-<li><%= @user.job_type %></li>
-<li><%= @user.birthday %></li>
-<li><%= @user.birthplace %></li>
-<li><%= @user.background %></li>
-<li><%= @user.ppb_carrier %></li>
-<li><%= @user.hometown %></li>
-<li><%= @user.hobby %></li>
-<li><%= @user.favorite_food %></li>
-<li><%= @user.favorite_book %></li>
-<li><%= @user.club %></li>
-<li><%= @user.strong_point %></li>
-<li><%= @user.free_space %></li>
+<li class="name"><%= t("activerecord.attributes.user.name") %><%= @user.name %></li>
+<li><%= t("activerecord.attributes.user.nickname") %><%= @user.nickname %></li>
+<li><%= t("activerecord.attributes.user.irc_name") %> <%= @user.irc_name %></li>
+<li><%= t("activerecord.attributes.user.github_name") %><%= @user.github_name %></li>
+<li><%= t("activerecord.attributes.user.section") %><%= @user.section.name %></li>
+<li><%= t("activerecord.attributes.user.job_type") %><%= @user.job_type %></li>
+<li><%= t("activerecord.attributes.user.birthday") %><%= @user.birthday %></li>
+<li><%= t("activerecord.attributes.user.birthplace") %><%= @user.birthplace %></li>
+<li><%= t("activerecord.attributes.user.background") %><%= @user.background %></li>
+<li><%= t("activerecord.attributes.user.ppb_carrier") %><%= @user.ppb_carrier %></li>
+<li><%= t("activerecord.attributes.user.hometown") %><%= @user.hometown %></li>
+<li><%= t("activerecord.attributes.user.hobby") %><%= @user.hobby %></li>
+<li><%= t("activerecord.attributes.user.favorite_food") %><%= @user.favorite_food %></li>
+<li><%= t("activerecord.attributes.user.favorite_book") %><%= @user.favorite_book %></li>
+<li><%= t("activerecord.attributes.user.club") %><%= @user.club %></li>
+<li><%= t("activerecord.attributes.user.strong_point") %><%= @user.strong_point %></li>
+<li><%= t("activerecord.attributes.user.free_spece") %><%= @user.free_space %></li>
 </div>
