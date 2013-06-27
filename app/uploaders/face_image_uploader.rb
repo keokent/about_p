@@ -29,8 +29,16 @@ class FaceImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  version :thumb do
-    process :resize_to_limit => [50, 50]
+  version :header_thumb do
+    process :resize_to_limit => [40, 40]
+  end
+
+  version :profile_thumb do
+    process :resize_to_limit => [180, 180]
+  end
+
+  version :index_thumb do
+    process :resize_to_limit => [60, 60]
   end
   # process :scale => [200, 300]
   

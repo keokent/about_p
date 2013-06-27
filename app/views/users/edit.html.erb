@@ -10,7 +10,7 @@
     </div>
   <% end %>
     <div class="pro_img">
-      <%= image_tag @user.face_image_url(:thumb).to_s, :size => "180" %>
+      <%= image_tag @user.face_image_url(:profile_thumb).to_s, :size => "180" %>
         <%= f.file_field :face_image %>
     <p class="btn_edit_submit"><%= f.submit %></p>
   </div>

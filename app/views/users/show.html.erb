@@ -2,7 +2,7 @@
   <p><%= link_to "EditProfile", edit_user_path(current_user) %></p>
 <h3>This is user's profile page.</h3>
   <div class="pro_img">
-<%= image_tag @user.face_image_url(:thumb).to_s, :size => "180" %>
+<%= image_tag @user.face_image_url(:profile_thumb).to_s, :size => "180" %>
 </div>
 <div class="pro_text">
 <li class="name"><span><%= t("activerecord.attributes.user.name") %></span><%= @user.name %></li>
