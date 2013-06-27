@@ -87,7 +87,7 @@ describe "UserPages" do
       it { should have_content(user.name) }
       it { should have_content(user.nickname) }
       it { should have_content(user.irc_name) }
-      it { should have_selector("img[src='#{user.face_image_url(:thumb).to_s}']") }
+      it { should have_selector("img[src='#{user.face_image_url(:profile_thumb).to_s}']") }
       it { should have_content(user.section.name) }
       it { should have_content(user.job_type) }
     end

@@ -68,10 +68,8 @@ class UsersController < ApplicationController
   end
   
   def ppb_member
-    members = JSON.parse(open("#{Rails.root}/tmp/ppb_members.json").read)
-
-    if members.has_key? session[:github_nickname]
-      session[:realname] = members[session[:github_nickname]] 
+    if GithubMember.paperboy? session[:github_nickname]
+      session[:realname] = GithubMember.all[session[:github_nickname]] 
     else
       flash[:error] = "ペパボの人じゃないひとは入れません！"
       redirect_to signin_path 
