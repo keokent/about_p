@@ -138,4 +138,44 @@ describe "UserPages" do
     end
   end
 
+  describe "サービスロゴ" do
+    let(:logo_link_selector) { '/html/body/header/a' }
+
+    context "サインインしているとき" do
+      before do
+        @section = Section.find_by(name: "人材開発本部")
+        @user = @section.users.create(name: "喜多啓介",
+                                      job_type: :engineer,
+                                      github_uid: "12345",
+                                      irc_name: "kitak",
+                                      hometown: "渋谷")
+        sign_in @user
+      end 
+
+      it "トップページにいるときにロゴをクリックしたらトップページへ移動する" do
+        visit users_path
+        find(logo_link_selector).click
+        expect(page).to have_content('みんな') 
+      end
+
+      it "プロフィールページにいるときにロゴをクリックしたらトップページへ移動する" do
+        visit user_path(@user)
+        find(logo_link_selector).click
+        expect(page).to have_content('みんな') 
+      end
+
+      it "プロフィール編集ページにいるときにロゴをクリックしたらトップページへ移動する" do
+        visit user_path(@user)
+        find(logo_link_selector).click
+        expect(page).to have_content('みんな') 
+      end
+    end
+
+    context "サインインしていないとき" do
+      it "サインインページではヘッダーにロゴは表示されない" do
+        visit signin_path
+        expect(page).not_to have_selector(logo_link_selector)
+      end
+    end
+  end
 end

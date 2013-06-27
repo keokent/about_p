@@ -1,27 +1,25 @@
-<p><%= link_to "EditProfile", edit_user_path(current_user) %></p>
 
 <div id="profile">
-  <div class="pro_img">
+  <p><%= link_to "EditProfile", edit_user_path(current_user) %></p>
 <p>This is user's profile page.</p>
+  <div class="pro_img">
 <%= image_tag @user.face_image_url(:thumb).to_s, :size => "180" %>
 </div>
 <div class="pro_text">
-<p><%= @user.name %></p>
-<p><%= @user.nickname %></p>
-<p><%= @user.irc_name %></p>
-<p><%= @user.github_name %></p>
-<p><%= @user.section.name %></p>
-<p><%= @user.job_type %></p>
-<p><%= @user.birthday %></p>
-<p><%= @user.birthplace %></p>
-<p><%= @user.background %></p>
-<p><%= @user.ppb_carrier %></p>
-<p><%= @user.hometown %></p>
-<p><%= @user.hobby %></p>
-<p><%= @user.favorite_food %></p>
-<p><%= @user.favorite_book %></p>
-<p><%= @user.club %></p>
-<p><%= @user.strong_point %></p>
-<p><%= @user.free_space %></p>
-</div>
+<li class="name"><%= @user.name %></li>
+<li><%= @user.nickname %></li>
+<li><%= @user.irc_name %></li>
+<li><%= @user.section.name %></li>
+<li><%= @user.job_type %></li>
+<li><%= @user.birthday %></li>
+<li><%= @user.birthplace %></li>
+<li><%= @user.background %></li>
+<li><%= @user.ppb_carrier %></li>
+<li><%= @user.hometown %></li>
+<li><%= @user.hobby %></li>
+<li><%= @user.favorite_food %></li>
+<li><%= @user.favorite_book %></li>
+<li><%= @user.club %></li>
+<li><%= @user.strong_point %></li>
+<li><%= @user.free_space %></li>
 </div>

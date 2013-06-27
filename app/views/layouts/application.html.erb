@@ -8,10 +8,10 @@
 </head>
 <body>
   <header>
-    <div class="logo"></div>
-      <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-  <% end %>
+    <%= link_to(content_tag(:div, "", :class => 'logo'), users_path) if request.path_info != signin_path %>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
     <div id="menu">
       <ul>
     <% if signed_in? %>
