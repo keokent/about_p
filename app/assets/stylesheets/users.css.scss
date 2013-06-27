@@ -208,12 +208,11 @@ footer p {
  margin-bottom: 20px;
  width: 480px;
 }
-#edit span.nes {
+#edit .nes {
   color: #00aac3;
-  font-size: 14px;
   margin-left: 3px;
 }
-#edit span.nes_notice {
+#edit .nes_notice {
   color: #00aac3;
   font-size: 12px;
   font-weight: normal;
@@ -241,6 +240,9 @@ footer p {
 }
 #edit .long label {
   width: 450px;
+}
+#edit .long p {
+  margin-bottom: 5px;
 }
 
 #edit .field_with_errors {
