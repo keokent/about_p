@@ -9,7 +9,11 @@ body {
   line-height: 1.5em;
 }
 a {
-  text-decoration: underline;
+  text-decoration: none;
+  color: #00aac3;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 p {
   margin: 0;
@@ -60,10 +64,10 @@ header .logo {
   margin-top: 30px;
 }
 #menu a {
-  color: #333;
+  color: #00aac3;
   text-decoration: none;
   &:hover {
-    color: #FFF;
+    opacity: 0.5;
   }
 }
 #menu li {
@@ -141,6 +145,7 @@ header .logo {
  p.section_name {
    margin: 0 auto 10px;
  }
+
 
 /* profile*/
 #profile {
