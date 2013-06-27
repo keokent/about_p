@@ -1,12 +1,7 @@
 <div id="edit">
 
 <p><%= link_to "EditProfile", edit_user_path(current_user) %></p>
-
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
-  <div class="pro_img">
-    <p class="btn_edit_submit"><%= f.submit %></p>
-  </div>
-  <div class="pro_text">
   <% if f.object.errors.any? %>
     <div>
       <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p>
@@ -15,6 +10,10 @@
       <% end %>
     </div>
   <% end %>
+    <div class="pro_img">
+    <p class="btn_edit_submit"><%= f.submit %></p>
+  </div>
+  <div class="pro_text">
   <ul>
     <li><span class="nes"><%= f.label :name %></span><%= f.text_field :name %></li>
     <li><%= f.label :nickname %><%= f.text_field :nickname %></li>
@@ -37,7 +36,7 @@
     <li><%= f.label :club %><%= f.text_area :club %></li>
     <li><%= f.label :strong_point %><%= f.text_area :strong_point %></li>
     <li><%= f.label :free_space %><%= f.text_area :free_space %></li>
-  </ul> 
+  </ul>
 <% end %>
 </div>
 </div>
