@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   def new
     @sections = Section.all
     @user = User.new
-    # フォームにデフォルトで実名とnicknameを表示
   end
 
   def edit
