@@ -1,78 +1,39 @@
+<div id="edit">
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <% if f.object.errors.any? %>
     <div>
-      <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p> 
+      <p>The form contains <%= pluralize(f.object.errors.count, "error") %>.</p>
       <% f.object.errors.full_messages.each do |msg| %>
         <li>* <%= msg %></li>
       <% end %>
     </div>
   <% end %>
-<table>
-  <tr>
-    <th><%= f.label :name %></th>
-    <td><%= f.text_field :name, :value => session[:realname] %></td>
-  </tr>
-  
-  <tr>
-    <th><%= f.label :nickname %></th>
-    <td><%= f.text_field :nickname, :value => session[:github_nickname] %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :irc_name %></th>
-    <td><%= f.text_field :irc_name %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :face_image %></th>
-    <td><%= f.file_field :face_image %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :section %></th>
-    <td><%= f.select :section, Section.all.enum_for(:each_with_index).map { |item, index| [item.name, index+1] } %></td>
-  </tr>
-  
-  <tr>
-    <th><%= f.label :job_type %></th>
-    <td><%= f.select :job_type, User.job_type.options %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :birthday %></th>
-    <td><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14, :default => Date.new(1980,01,01) %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :birthplace %></th>
-    <td><%= f.text_field :birthplace %></td>
-  </tr>
-  
-  <tr>
-    <th><%= f.label :hometown %></th>
-    <td><%= f.text_area :hometown %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :ppb_join %></th>
-    <td><%= f.text_area :ppb_join %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :ppb_carrier %></th>
-    <td><%= f.text_area :ppb_carrier %></td>
-  </tr>
-  
-  <tr>
-    <th><%= f.label :twitter_id %></th>
-    <td><%= f.text_field :twitter_id %></td>
-  </tr>
-
-  <tr>
-    <th><%= f.label :strong_point %></th>
-    <td><%= f.text_area :strong_point %></td>
-  </tr>
-
-</table>
-<p><%= f.submit %></p>
+    <div class="pro_img">
+      <%= image_tag @user.face_image_url(:profile_thumb).to_s, :size => "180" %>
+        <%= f.file_field :face_image %>
+    <p class="btn_edit_submit"><%= f.submit %></p>
+  </div>
+  <div class="pro_text">
+    <p class="aori">基本情報<span class="nes_notice">*青文字は必須項目です</span></p>
+  <ul>
+    <li><span class="nes"><%= f.label :name %></span><%= f.text_field :name %></li>
+    <li><%= f.label :nickname %><%= f.text_field :nickname %></li>
+    <li><%= f.label :irc_name %><%= f.text_field :irc_name %></li>
+    <li><span class="nes"><%= f.label :section %></span><%= f.select :section, Section.all.enum_for(:each_with_index).map { |item, index| [item.name, index+1] } %></li>
+    <li><span class="nes"><%= f.label :job_type %></span><%= f.select :job_type, User.job_type.options %></li>
+    <li><span class="nes"><%= f.label :birthday %></span><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_yearv => Time.now.year-14, :default => Date.new(1980,01,01) %></li>
+    <li><%= f.label :birthplace %><%= f.text_field :birthplace %></li>
+    </ul>
+    <ul class="long">
+    <li><p><%= f.label :ppb_join %></p><%= f.text_area :ppb_join %></li>
+    <li><p><%= f.label :ppb_carrier %></p><%= f.text_area :ppb_carrier %></li>
+    <li><p><%= f.label :hometown %></p><%= f.text_area :hometown %></li>
+    <li><p><%= f.label :twitter_id %></p><%= f.text_area :twitter_id %></li>
+    <li><p><%= f.label :blog_url %></p><%= f.text_area :blog_url %></li>
+    <li><p><%= f.label :hobby %></p><%= f.text_area :hobby %></li>
+     <li><p><%= f.label :strong_point %></p><%= f.text_area :strong_point %></li>
+    <li><p><%= f.label :free_space %></p><%= f.text_area :free_space %></li>
+  </ul>
 <% end %>
+</div>
+</div>
