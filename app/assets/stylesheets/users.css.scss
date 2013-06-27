@@ -51,7 +51,7 @@ header {
 }
 header .wrap {
     position: relative;
-  height: 60px;
+  height: 80px;
   width: 880px;
   margin: 0 auto;
 }
@@ -61,12 +61,12 @@ header .logo {
   background: image-url('logo_dummy2.png');
   height: 41px;
   width: 165px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 #menu {
   position: absolute;
   right: 30px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 #menu a {
   color: #fff;
