@@ -19,11 +19,20 @@
 <% if @user.background.present? %>
 <li><p><%= t("activerecord.attributes.user.background") %></p><%= @user.background %></li>
 <% end %>
+<% if @user.ppb_join.present? %>
+<li><p><%= t("activerecord.attributes.user.ppb_join") %></p><%= @user.ppb_join %></li>
+<% end %>
 <% if @user.ppb_carrier.present? %>
 <li><p><%= t("activerecord.attributes.user.ppb_carrier") %></p><%= @user.ppb_carrier %></li>
 <% end %>
 <% if @user.hometown.present? %>
 <li><p><%= t("activerecord.attributes.user.hometown") %></p><%= @user.hometown %></li>
+<% end %>
+<% if @user.twitter_id.present? %>
+<li><p><%= t("activerecord.attributes.user.twitter_id") %></p><%= @user.twitter_id %></li>
+<% end %>
+<% if @user.blog_url.present? %>
+<li><p><%= t("activerecord.attributes.user.blog_url") %></p><%= @user.blog_url %></li>
 <% end %>
 <% if @user.hobby.present? %>
 <li><p><%= t("activerecord.attributes.user.hobby") %></p><%= @user.hobby %></li>

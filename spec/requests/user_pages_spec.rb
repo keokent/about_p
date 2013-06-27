@@ -76,7 +76,16 @@ describe "UserPages" do
 
   describe "show" do
     let(:user) { FactoryGirl.create(:user, github_uid:"12345",
-                                    face_image: open(File.expand_path("../../fixtures/icon.jpg", __FILE__))) }
+                                    face_image: open(File.expand_path("../../fixtures/icon.jpg", __FILE__)),
+                                    birthday: Date.new(1988,01,10), birthplace: "東京都",
+                                    married: "未婚", background: "ペパボ大学出身",
+                                    ppb_join: "2013年", ppb_carrier: "研修中",
+                                    hometown: "渋谷", twitter_id: "@pepabo",
+                                    blog_url: "http://www.paperboy.co.jp/",
+                                    hobby: "インターネット", favorite_food: "からあげ",
+                                    favorite_book: "ぺぱぼん", club: "バレーボール部",
+                                    strong_point: "長所は", free_space: "ここはフリー欄です")
+    }
     
     before do
       sign_in user
@@ -90,6 +99,21 @@ describe "UserPages" do
       it { should have_selector("img[src='#{user.face_image_url(:thumb).to_s}']") }
       it { should have_content(user.section.name) }
       it { should have_content(user.job_type) }
+      it { should have_content(user.birthday) }
+      it { should have_content(user.birthplace) }
+      it { should have_content(user.married) }
+      it { should have_content(user.background) }
+      it { should have_content(user.ppb_join) }
+      it { should have_content(user.ppb_carrier) }
+      it { should have_content(user.hometown) }
+      it { should have_content(user.twitter_id) }
+      it { should have_content(user.blog_url) }
+      it { should have_content(user.hobby) }
+      it { should have_content(user.favorite_food) }
+      it { should have_content(user.favorite_book) }
+      it { should have_content(user.club) }
+      it { should have_content(user.strong_point) }
+      it { should have_content(user.free_space) }
     end
   end
 
