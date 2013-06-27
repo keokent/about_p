@@ -1,5 +1,4 @@
 <div id="edit">
-
 <p><%= link_to "EditProfile", edit_user_path(current_user) %></p>
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <% if f.object.errors.any? %>

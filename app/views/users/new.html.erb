@@ -10,12 +10,12 @@
 <table>
   <tr>
     <th><%= f.label :name %></th>
-    <td><%= f.text_field :name %></td>
+    <td><%= f.text_field :name, :value => session[:realname] %></td>
   </tr>
   
   <tr>
     <th><%= f.label :nickname %></th>
-    <td><%= f.text_field :nickname %></td>
+    <td><%= f.text_field :nickname, :value => session[:github_nickname] %></td>
   </tr>
 
   <tr>

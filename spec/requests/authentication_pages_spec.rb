@@ -6,19 +6,19 @@ describe "Authentication" do
 
   describe "signin page" do
     before { visit signin_path }
-    let(:signin_button_text) { 'Sign in with Github' }
+    let(:signin_button_selector) { ".btn_signin a[href='/auth/github']" }
     let(:create_user_text) { '登録する' }
 
-    it { should have_content(signin_button_text) }
+    it { should have_selector(signin_button_selector) }
 
     context "ユーザを作成していない" do
       it "認証が通ったらユーザ作成画面が表示される" do
-        click_link 'Sign in with Github'
+        find(signin_button_selector).click
         expect(page).to have_button(create_user_text)
       end
 
       it "ユーザ作成画面から一旦別のページに移動し、認証が必要なページに移動するとユーザ作成ページにリダイレクトする" do
-        click_link 'Sign in with Github'
+        find(signin_button_selector).click
         visit 'http://www.yahoo.co.jp'
         visit users_path 
         expect(page).to have_button(create_user_text)
@@ -35,7 +35,7 @@ describe "Authentication" do
       end
 
       it "認証が通ったらユーザ一覧ページへ移動する" do
-        click_link signin_button_text 
+        find(signin_button_selector).click
         expect(page).to have_content('みんな') 
       end
     end
@@ -43,7 +43,7 @@ describe "Authentication" do
     context "not throught github authentication" do
       before { visit new_user_path }
 
-      it { should have_content(signin_button_text) }
+      it { should have_selector(signin_button_selector) }
     end
   end
 end

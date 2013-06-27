@@ -36,7 +36,7 @@ describe "UserPages" do
 
     describe "不正なデータが入力されたとき" do
       before do
-        fill_in "名前", with: " "
+        fill_in "お名前", with: " "
         select "JUGEM", :from => "部署"
         select "エンジニア", :from => "職種"
         fill_in "IRCの名前", with: "12345"
@@ -51,7 +51,7 @@ describe "UserPages" do
 
     describe "正しいデータ入力されたとき" do
       before do
-        fill_in "名前", with: "喜多啓介"
+        fill_in "お名前", with: "喜多啓介"
         select "人材開発本部", :from => "部署"
         select "エンジニア", :from => "職種"
         fill_in "IRCの名前", with: "kitak"
@@ -103,7 +103,7 @@ describe "UserPages" do
 
     context "項目に正しいデータを入力して更新ボタンを押したとき" do
       before do
-        fill_in "今住んでいるところ", with: new_hometown
+        fill_in "今のお住まいはどこですか", with: new_hometown
         click_button update_button_text 
       end
 
@@ -122,7 +122,7 @@ describe "UserPages" do
     end
 
     it "項目に不正なデータを入力して更新ボタンを押すとエラーが表示されるはず" do
-      fill_in "名前", with: ""
+      fill_in "お名前", with: ""
       click_button update_button_text
       expect(page).to have_content('error')
     end
