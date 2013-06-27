@@ -47,7 +47,22 @@ describe "UserPages" do
         expect(page).to have_button('登録する')
         expect(page).to have_content('error')
       end
-    end	   
+    end
+
+    describe "Twitter_idに不正なデータが入力されたとき" do
+      before do
+        fill_in "お名前", with: "きたけい "
+        select "JUGEM", :from => "部署"
+        select "エンジニア", :from => "職種"
+        fill_in "IRCの名前", with: "12345"
+        fill_in "Twitterアカウント", with: "abcdQQ!!!"
+        click_button '登録する'
+      end
+
+      it "エラーが表示されるべき" do
+        expect(page).to have_content('error')
+      end
+    end
 
     describe "正しいデータ入力されたとき" do
       before do
