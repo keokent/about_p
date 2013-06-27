@@ -15,6 +15,7 @@
     <p class="btn_edit_submit"><%= f.submit %></p>
   </div>
   <div class="pro_text">
+    <p class="aori">基本情報</p>
   <ul>
     <li><span class="nes"><%= f.label :name %></span><%= f.text_field :name %></li>
     <li><%= f.label :nickname %><%= f.text_field :nickname %></li>
@@ -23,11 +24,12 @@
     <li><span class="nes"><%= f.label :job_type %></span><%= f.select :job_type, User.job_type.options %></li>
     <li><span class="nes"><%= f.label :birthday %></span><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_yearv => Time.now.year-14, :default => Date.new(1980,01,01) %></li>
     <li><%= f.label :birthplace %><%= f.text_field :birthplace %></li>
-    <li><%= f.label :married %><%= f.text_field :married %></li>
-</ul>
+    </ul>
+    <p class="aori">あなたのことをもっと教えて</p>
 <ul class="long">
+    <li><%= f.label :married %><%= f.text_area :married %></li>
     <li><p><%= f.label :background %></p><%= f.text_area :background %></li>
-    <li><p><%= f.label :ppb_join %></p><%= f.text_field :ppb_join %></li>
+    <li><p><%= f.label :ppb_join %></p><%= f.text_area :ppb_join %></li>
     <li><p><%= f.label :ppb_carrier %></p><%= f.text_area :ppb_carrier %></li>
     <li><p><%= f.label :hometown %></p><%= f.text_area :hometown %></li>
     <li><p><%= f.label :twitter_id %></p><%= f.text_area :twitter_id %></li>
