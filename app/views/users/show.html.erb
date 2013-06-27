@@ -13,14 +13,34 @@
 <li><span><%= t("activerecord.attributes.user.job_type") %></span><%= @user.job_type %></li>
 <li><span><%= t("activerecord.attributes.user.birthday") %></span><%= @user.birthday %></li>
 <li><span><%= t("activerecord.attributes.user.birthplace") %></span><%= @user.birthplace %></li>
-
+<% if @user.married.present? %>
+<li><span><%= t("activerecord.attributes.user.married") %></span><%= @user.married %></li>
+<% end %>
+<% if @user.background.present? %>
 <li><p><%= t("activerecord.attributes.user.background") %></p><%= @user.background %></li>
+<% end %>
+<% if @user.ppb_carrier.present? %>
 <li><p><%= t("activerecord.attributes.user.ppb_carrier") %></p><%= @user.ppb_carrier %></li>
+<% end %>
+<% if @user.hometown.present? %>
 <li><p><%= t("activerecord.attributes.user.hometown") %></p><%= @user.hometown %></li>
+<% end %>
+<% if @user.hobby.present? %>
 <li><p><%= t("activerecord.attributes.user.hobby") %></p><%= @user.hobby %></li>
+<% end %>
+<% if @user.favorite_food.present? %>
 <li><p><%= t("activerecord.attributes.user.favorite_food") %></p><%= @user.favorite_food %></li>
+<% end %>
+<% if @user.favorite_book.present? %>
 <li><p><%= t("activerecord.attributes.user.favorite_book") %></p><%= @user.favorite_book %></li>
+<% end %>
+<% if @user.club.present? %>
 <li><p><%= t("activerecord.attributes.user.club") %></p><%= @user.club %></li>
+<% end %>
+<% if @user.strong_point.present? %>
 <li><p><%= t("activerecord.attributes.user.strong_point") %></p><%= @user.strong_point %></li>
+<% end %>
+<% if @user.free_space.present? %>
 <li><p><%= t("activerecord.attributes.user.free_spece") %></p><%= @user.free_space %></li>
+<% end %>
 </div>
