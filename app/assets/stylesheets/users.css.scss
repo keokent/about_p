@@ -88,13 +88,15 @@ header .logo {
 /*               content              */
 .pro_text {
   display: inline-block;
-  width: 580px;
+  width: 450px;
   margin-left: 60px;
+  vertical-align: top;
+  margin-top: 20px;
 }
 .pro_img {
   display: inline-block;
   width: 180px;
-  margin-left: 140px;
+  margin-top: 20px;
 }
 
 /* signin */
@@ -142,6 +144,15 @@ header .logo {
 
 /* profile*/
 #profile {
+  width: 700px;
+  margin: 0 auto;
+}
+#profile li {
+  display: block;
+  margin-bottom: 10px;
+}
+#profile li.name {
+  font-weight: bold;
 }
 
 /* edit */
