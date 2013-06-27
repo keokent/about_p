@@ -15,6 +15,7 @@
     <div id="menu">
       <ul>
     <% if signed_in? %>
+      <li><%= image_tag current_user.face_image_url(:header_thumb).to_s %><%= current_user.name %></li>
       <li><%= link_to "Everyone", users_path %></li>
       <li><%= link_to "MyProfile", user_path(current_user) %></li>
       <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
