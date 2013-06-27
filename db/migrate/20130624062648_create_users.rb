@@ -3,11 +3,11 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :github_uid
       t.string :name
+      t.string :nickname
+      t.string :irc_name
+      t.string :github_name   
       t.integer :section_id
       t.string :job_type
-      t.string :irc_name
-      t.string :github_name
-      t.string :nickname
       t.date :birthday
       t.text :birthplace
       t.string :married
