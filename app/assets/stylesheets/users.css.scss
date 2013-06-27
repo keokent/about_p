@@ -46,7 +46,11 @@ input,textarea {
 
 /*header*/
 header {
-  position: relative;
+  background: #00aac3;
+  width: 100%;
+}
+header .wrap {
+    position: relative;
   height: 60px;
   width: 980px;
   margin: 0 auto;
@@ -54,9 +58,10 @@ header {
 header .logo {
   position: absolute;
   left: 0;
-  background: image-url('logo_dummy.gif');
-  height: 64px;
-  width: 177px;
+  background: image-url('logo_dummy2.png');
+  height: 41px;
+  width: 165px;
+  margin-top: 10px;
 }
 #menu {
   position: absolute;
@@ -64,7 +69,7 @@ header .logo {
   margin-top: 30px;
 }
 #menu a {
-  color: #00aac3;
+  color: #fff;
   text-decoration: none;
   &:hover {
     opacity: 0.5;
