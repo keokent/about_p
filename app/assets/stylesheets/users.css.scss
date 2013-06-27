@@ -52,7 +52,7 @@ header {
 header .wrap {
     position: relative;
   height: 60px;
-  width: 980px;
+  width: 880px;
   margin: 0 auto;
 }
 header .logo {
@@ -66,7 +66,7 @@ header .logo {
 #menu {
   position: absolute;
   right: 30px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 #menu a {
   color: #fff;
@@ -77,6 +77,11 @@ header .logo {
 }
 #menu li {
   margin-right: 10px;
+  color: #FFF;
+}
+#menu img {
+  vertical-align: middle;
+  margin-right: 5px;
 }
 
 #content {
@@ -104,11 +109,12 @@ header .logo {
 }
 .pro_img {
   display: inline-block;
-  width: 180px;
+  width: 200px;
   margin-top: 20px;
+  text-align: center;
 }
 .pro_img img {
-  margin: 0 auto;
+  margin: 0 auto 20px;
 }
 
 /* signin */
@@ -149,6 +155,7 @@ header .logo {
   margin: 0 10px 20px;
   width: 300px;
   vertical-align: top;
+  text-align: center;
 }
  p.section_name {
    margin: 0 auto 10px;
@@ -157,12 +164,12 @@ header .logo {
 
 /* profile*/
 #profile {
-  width: 720px;
+  width: 780px;
   margin: 0 auto;
 }
 #profile li {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 #profile li.name {
   font-weight: bold;
@@ -174,7 +181,7 @@ header .logo {
 
 /* edit */
 #edit {
-  width: 720px;
+  width: 780px;
   margin: 0 auto;
 }
 #edit textarea {
@@ -183,6 +190,8 @@ header .logo {
 
 #edit input[type="file"] {
   border: 1px solid #999;
+  width: 200px;
+  font-size: 10px;
 }
 #edit li {
  margin-bottom: 20px;

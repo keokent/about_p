@@ -1,11 +1,9 @@
 <div id="profile">
-  <p><%= link_to "EditProfile", edit_user_path(current_user) %></p>
-<h3>This is user's profile page.</h3>
   <div class="pro_img">
 <%= image_tag @user.face_image_url(:profile_thumb).to_s, :size => "180" %>
 </div>
 <div class="pro_text">
-<li class="name"><span><%= t("activerecord.attributes.user.name") %></span><%= @user.name %></li>
+<li><span><%= t("activerecord.attributes.user.name") %></span><%= @user.name %></li>
 <li><span><%= t("activerecord.attributes.user.nickname") %></span><%= @user.nickname %></li>
 <li><span><%= t("activerecord.attributes.user.irc_name") %></span><%= @user.irc_name %></li>
 <li><span><%= t("activerecord.attributes.user.github_name") %></span><%= @user.github_name %></li>
@@ -52,4 +50,5 @@
 <% if @user.free_space.present? %>
 <li><p><%= t("activerecord.attributes.user.free_spece") %></p><%= @user.free_space %></li>
 <% end %>
+</div>
 </div>
