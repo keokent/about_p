@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     @section = Section.find_by(id: params[:user][:section])
     @user = @section.users.build(user_params)
     @user.github_uid = session[:github_uid]
+    @user.github_name = session[:github_nickname]
     if @user.save
       sign_in @user
       flash[:success] = "aboutPへようこそ"
