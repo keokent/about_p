@@ -152,7 +152,7 @@ header .logo {
 
 /* profile*/
 #profile {
-  width: 700px;
+  width: 720px;
   margin: 0 auto;
 }
 #profile li {
@@ -162,12 +162,18 @@ header .logo {
 #profile li.name {
   font-weight: bold;
 }
+#profile span {
+  width: 150px;
+  display: inline-block;
+}
 
 /* edit */
 #edit {
+  width: 720px;
+  margin: 0 auto;
 }
 #edit textarea {
-  width: 280px;
+  width: 420px;
 }
 
 #edit input[type="file"] {
@@ -199,10 +205,13 @@ header .logo {
   }
 }
 #edit label {
-  width: 180px;
+  width: 120px;
   display: inline-block;
-  text-align: center;
 }
+#edit .long label {
+  width: 450px;
+}
+
 #edit .field_with_errors {
   display: inline-block;
 }

@@ -1,25 +1,26 @@
 <div id="profile">
   <p><%= link_to "EditProfile", edit_user_path(current_user) %></p>
-<p>This is user's profile page.</p>
+<h3>This is user's profile page.</h3>
   <div class="pro_img">
 <%= image_tag @user.face_image_url(:thumb).to_s, :size => "180" %>
 </div>
 <div class="pro_text">
-<li class="name"><%= t("activerecord.attributes.user.name") %><%= @user.name %></li>
-<li><%= t("activerecord.attributes.user.nickname") %><%= @user.nickname %></li>
-<li><%= t("activerecord.attributes.user.irc_name") %> <%= @user.irc_name %></li>
-<li><%= t("activerecord.attributes.user.github_name") %><%= @user.github_name %></li>
-<li><%= t("activerecord.attributes.user.section") %><%= @user.section.name %></li>
-<li><%= t("activerecord.attributes.user.job_type") %><%= @user.job_type %></li>
-<li><%= t("activerecord.attributes.user.birthday") %><%= @user.birthday %></li>
-<li><%= t("activerecord.attributes.user.birthplace") %><%= @user.birthplace %></li>
-<li><%= t("activerecord.attributes.user.background") %><%= @user.background %></li>
-<li><%= t("activerecord.attributes.user.ppb_carrier") %><%= @user.ppb_carrier %></li>
-<li><%= t("activerecord.attributes.user.hometown") %><%= @user.hometown %></li>
-<li><%= t("activerecord.attributes.user.hobby") %><%= @user.hobby %></li>
-<li><%= t("activerecord.attributes.user.favorite_food") %><%= @user.favorite_food %></li>
-<li><%= t("activerecord.attributes.user.favorite_book") %><%= @user.favorite_book %></li>
-<li><%= t("activerecord.attributes.user.club") %><%= @user.club %></li>
-<li><%= t("activerecord.attributes.user.strong_point") %><%= @user.strong_point %></li>
-<li><%= t("activerecord.attributes.user.free_spece") %><%= @user.free_space %></li>
+<li class="name"><span><%= t("activerecord.attributes.user.name") %></span><%= @user.name %></li>
+<li><span><%= t("activerecord.attributes.user.nickname") %></span><%= @user.nickname %></li>
+<li><span><%= t("activerecord.attributes.user.irc_name") %></span><%= @user.irc_name %></li>
+<li><span><%= t("activerecord.attributes.user.github_name") %></span><%= @user.github_name %></li>
+<li><span><%= t("activerecord.attributes.user.section") %></span><%= @user.section.name %></li>
+<li><span><%= t("activerecord.attributes.user.job_type") %></span><%= @user.job_type %></li>
+<li><span><%= t("activerecord.attributes.user.birthday") %></span><%= @user.birthday %></li>
+<li><span><%= t("activerecord.attributes.user.birthplace") %></span><%= @user.birthplace %></li>
+
+<li><p><%= t("activerecord.attributes.user.background") %></p><%= @user.background %></li>
+<li><p><%= t("activerecord.attributes.user.ppb_carrier") %></p><%= @user.ppb_carrier %></li>
+<li><p><%= t("activerecord.attributes.user.hometown") %></p><%= @user.hometown %></li>
+<li><p><%= t("activerecord.attributes.user.hobby") %></p><%= @user.hobby %></li>
+<li><p><%= t("activerecord.attributes.user.favorite_food") %></p><%= @user.favorite_food %></li>
+<li><p><%= t("activerecord.attributes.user.favorite_book") %></p><%= @user.favorite_book %></li>
+<li><p><%= t("activerecord.attributes.user.club") %></p><%= @user.club %></li>
+<li><p><%= t("activerecord.attributes.user.strong_point") %></p><%= @user.strong_point %></li>
+<li><p><%= t("activerecord.attributes.user.free_spece") %></p><%= @user.free_space %></li>
 </div>
