@@ -96,7 +96,7 @@ describe "UserPages" do
       it { should have_content(user.name) }
       it { should have_content(user.nickname) }
       it { should have_content(user.irc_name) }
-      it { should have_selector("img[src='#{user.face_image_url(:thumb).to_s}']") }
+      it { should have_selector("img[src='#{user.face_image_url(:profile_thumb).to_s}']") }
       it { should have_content(user.section.name) }
       it { should have_content(user.job_type) }
       it { should have_content(user.birthday) }
@@ -163,7 +163,7 @@ describe "UserPages" do
   end
 
   describe "サービスロゴ" do
-    let(:logo_link_selector) { '/html/body/header/a' }
+    let(:logo_link_selector) { '/html/body/header/div/a' }
 
     context "サインインしているとき" do
       before do
