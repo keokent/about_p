@@ -1,6 +1,8 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('entypo.css');
+
 body {
   margin: 0;
   padding: 0;
@@ -42,6 +44,16 @@ input,textarea {
   vertical-align: middle;
   font-size: 12px;
   padding: 5px;
+}
+@font-face {
+    font-family: 'EntypoRegular';
+    src: url('../fonts/entypo.eot');
+    src: url('../fonts/entypo.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/entypo.woff') format('woff'),
+         url('../fonts/entypo.ttf') format('truetype'),
+         url('../fonts/entypo.svg#EntypoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /*header*/
@@ -188,6 +200,7 @@ footer p {
 #profile span {
   width: 150px;
   display: inline-block;
+  font-weight: bold;
 }
 
 /* edit */
