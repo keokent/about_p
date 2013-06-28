@@ -95,7 +95,7 @@ describe "UserPages" do
                                     birthday: Date.new(1988,01,10), birthplace: "東京都",
                                     married: "未婚", background: "ペパボ大学出身",
                                     ppb_join: "2013年", ppb_carrier: "研修中",
-                                    hometown: "渋谷", twitter_id: "@pepabo",
+                                    hometown: "渋谷", twitter_id: "pepabo",
                                     blog_url: "http://www.paperboy.co.jp/",
                                     hobby: "インターネット", favorite_food: "からあげ",
                                     favorite_book: "ぺぱぼん", club: "バレーボール部",
