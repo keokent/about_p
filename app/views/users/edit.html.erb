@@ -9,7 +9,12 @@
     </div>
   <% end %>
     <div class="pro_img">
-      <%= image_tag @user.face_image_url(:profile_thumb).to_s, :size => "180" %>
+<% %>
+      <% if @user.face_image_url(:profile_thumb).to_s.empty? %>
+      <%= image_tag "dummy_img180.gif", :width => "180" %>
+      <% else %>
+      <%= image_tag @user.face_image_url(:profile_thumb).to_s, :width => "180" %>
+      <% end %>
         <%= f.file_field :face_image %>
     <p class="btn_edit_submit"><%= f.submit %></p>
   </div>
