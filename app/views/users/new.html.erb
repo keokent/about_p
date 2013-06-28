@@ -1,7 +1,7 @@
 <div id="edit">
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <% if f.object.errors.any? %>
-    <div>
+    <div class="error">
       <% f.object.errors.full_messages.each do |msg| %>
         <li>* <%= msg %></li>
       <% end %>
