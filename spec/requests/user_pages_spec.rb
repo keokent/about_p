@@ -20,8 +20,8 @@ describe "UserPages" do
     let(:user) { FactoryGirl.create(:user, github_uid: "12345") }
     before { sign_in user } 
 
-    it "「aboutPへようこそ」とメッセージが表示されるべき" do
-      expect(page).to have_content('aboutPへようこそ')
+    it "「みんな」とメッセージが表示されるべき" do
+      expect(page).to have_content('みんな')
     end
   end
 
@@ -36,7 +36,7 @@ describe "UserPages" do
 
     describe "不正なデータが入力されたとき" do
       before do
-        fill_in "お名前", with: " "
+        fill_in "名前", with: " "
         select "JUGEM", :from => "部署"
         select "エンジニア", :from => "職種"
         fill_in "IRCの名前", with: "12345"
@@ -45,13 +45,13 @@ describe "UserPages" do
 
       it "エラーが表示されるべき" do
         expect(page).to have_button('登録する')
-        expect(page).to have_content('error')
+        expect(page).to have_selector("div.error")
       end
     end
 
     describe "Twitter_idに不正なデータが入力されたとき" do
       before do
-        fill_in "お名前", with: "きたけい "
+        fill_in "名前", with: "きたけい "
         select "JUGEM", :from => "部署"
         select "エンジニア", :from => "職種"
         fill_in "IRCの名前", with: "12345"
@@ -60,13 +60,13 @@ describe "UserPages" do
       end
 
       it "エラーが表示されるべき" do
-        expect(page).to have_content('error')
+        expect(page).to have_selector("div.error")
       end
     end
 
     describe "正しいデータ入力されたとき" do
       before do
-        fill_in "お名前", with: "喜多啓介"
+        fill_in "名前", with: "喜多啓介"
         select "人材開発本部", :from => "部署"
         select "エンジニア", :from => "職種"
         fill_in "ニックネーム", with: "きたけー"
@@ -152,7 +152,7 @@ describe "UserPages" do
 
     context "項目に正しいデータを入力して更新ボタンを押したとき" do
       before do
-        fill_in "今のお住まいはどこですか", with: new_hometown
+        fill_in "どこに住んでますか？", with: new_hometown
         click_button update_button_text 
       end
 
@@ -171,9 +171,9 @@ describe "UserPages" do
     end
 
     it "項目に不正なデータを入力して更新ボタンを押すとエラーが表示されるはず" do
-      fill_in "お名前", with: ""
+      fill_in "名前", with: ""
       click_button update_button_text
-      expect(page).to have_content('error')
+      expect(page).to have_selector('div.error')
     end
   end
 
