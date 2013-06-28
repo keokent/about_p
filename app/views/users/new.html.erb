@@ -21,7 +21,7 @@
     <li><span class="nes"><%= f.label :irc_name %></span><%= f.text_field :irc_name %></li>
     <li><span class="nes"><%= f.label :section %></span><%= f.select :section, Section.all.enum_for(:each_with_index).map { |item, index| [item.name, index+1] } %></li>
     <li><span class="nes"><%= f.label :job_type %></span><%= f.select :job_type, User.job_type.options %></li>
-    <li><span class="nes"><%= f.label :birthday %></span><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_yearv => Time.now.year-14, :default => Date.new(1980,01,01) %></li>
+    <li><span class="nes"><%= f.label :birthday %></span><%= f.date_select :birthday, :use_month_numbers => true, :date_separator => '/', :start_year => 1950, :end_year => Time.now.year-14, :default => Date.new(1980,01,01) %></li>
     <li><%= f.label :birthplace %><%= f.text_field :birthplace %></li>
     </ul>
     <ul class="long">
