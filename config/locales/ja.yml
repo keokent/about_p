@@ -33,6 +33,8 @@ ja:
     job_type:
       engineer: エンジニア
       designer: デザイナー
+      director: ディレクター
       backoffice: バックオフィス
       manager: マネージャー
       producer: プロデューサー
+      officer: 役員
