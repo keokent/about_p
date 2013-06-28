@@ -21,9 +21,9 @@
       <% else %>
       <li><%= image_tag current_user.face_image_url(:header_thumb).to_s, size: "40x40" %><%= current_user.name %></li>
       <% end %>
-      <li><%= link_to "Everyone", users_path %></li>
-      <li><%= link_to "MyProfile", user_path(current_user) %></li>
-      <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+      <li><%= link_to "みんな", users_path %></li>
+      <li><%= link_to "自分のプロフィール", user_path(current_user) %></li>
+      <li><%= link_to "サインアウト", signout_path, method: "delete" %></li>
     <% end %>
   </ul>
   </div>
