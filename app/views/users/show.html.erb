@@ -22,43 +22,43 @@
 <li><span><%= t("activerecord.attributes.user.birthplace") %></span><%= @user.birthplace %></li>
 <% end %>
 <% if @user.married.present? %>
-<li><span><%= t("activerecord.attributes.user.married") %></span><%= @user.married %></li>
+<li><span><%= t("activerecord.attributes.user.married") %></span><%= simple_format(@user.married) %></li>
 <% end %>
 <% if @user.background.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.background") %></p><%= @user.background %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.background") %></p><%= simple_format(@user.background) %></li>
 <% end %>
 <% if @user.ppb_join.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.ppb_join") %></p><%= @user.ppb_join %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.ppb_join") %></p><%= simple_format(@user.ppb_join) %></li>
 <% end %>
 <% if @user.ppb_carrier.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.ppb_carrier") %></p><%= @user.ppb_carrier %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.ppb_carrier") %></p><%= simple_format(@user.ppb_carrier) %></li>
 <% end %>
 <% if @user.hometown.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.hometown") %></p><%= @user.hometown %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.hometown") %></p><%= simple_format(@user.hometown) %></li>
 <% end %>
 <% if @user.twitter_id.present? %>
 <li><p class="q"><%= t("activerecord.attributes.user.twitter_id") %></p><%= @user.twitter_id %></li>
 <% end %>
 <% if @user.blog_url.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.blog_url") %></p><%= @user.blog_url %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.blog_url") %></p><%= simple_format(@user.blog_url) %></li>
 <% end %>
 <% if @user.hobby.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.hobby") %></p><%= @user.hobby %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.hobby") %></p><%= simple_format(@user.hobby) %></li>
 <% end %>
 <% if @user.favorite_food.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.favorite_food") %></p><%= @user.favorite_food %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.favorite_food") %></p><%= simple_format(@user.favorite_food) %></li>
 <% end %>
 <% if @user.favorite_book.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.favorite_book") %></p><%= @user.favorite_book %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.favorite_book") %></p><%= simple_format(@user.favorite_book) %></li>
 <% end %>
 <% if @user.club.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.club") %></p><%= @user.club %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.club") %></p><%= simple_format(@user.club) %></li>
 <% end %>
 <% if @user.strong_point.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.strong_point") %></p><%= @user.strong_point %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.strong_point") %></p><%= simple_format(@user.strong_point) %></li>
 <% end %>
 <% if @user.free_space.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.free_space") %></p><%= @user.free_space %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.free_space") %></p><%= simple_format(@user.free_space) %></li>
 <% end %>
 </div>
 </div>
