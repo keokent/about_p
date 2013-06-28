@@ -11,6 +11,7 @@ ja:
         section_id: 部署
         face_image: 顔写真
         irc_name: IRCの名前
+        github_name: Githubアカウント
         nickname: ニックネーム
         birthday: 誕生日
         birthplace: 出身地
