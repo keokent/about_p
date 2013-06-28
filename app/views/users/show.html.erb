@@ -3,18 +3,14 @@
     <p><%= link_to "プロフィールを編集", edit_user_path(current_user) %></p>
   <% end %>
   <div class="pro_img">
-<% if @user.face_image_url(:profile_thumb).to_s.empty? %>
-<%= image_tag "dummy_img180.gif", :width => "180" %>
-<% else %>
 <%= image_tag @user.face_image_url(:profile_thumb).to_s, :width => "180" %>
-<% end %>
   </div>
 
 <div class="pro_text">
-<li><span><%= t("activerecord.attributes.user.name") %></span><%= @user.name %></li>
+<li class="name"><span><%= t("activerecord.attributes.user.name") %></span><%= @user.name %></li>
 <li><span><%= t("activerecord.attributes.user.nickname") %></span><%= @user.nickname %></li>
 <li><span><%= t("activerecord.attributes.user.irc_name") %></span><%= @user.irc_name %></li>
-<li class="github"><span><%= t("activerecord.attributes.user.github_name") %></span><%= @user.github_name %></li>
+<li class=""><span class="entypo-social github"><%= t("activerecord.attributes.user.github_name") %></span><%= @user.github_name %></li>
 <li><span><%= t("activerecord.attributes.user.section") %></span><%= @user.section.name %></li>
 <li><span><%= t("activerecord.attributes.user.job_type") %></span><%= @user.job_type_text %></li>
 <li><span><%= t("activerecord.attributes.user.birthday") %></span><%= @user.birthday %></li>
