@@ -18,9 +18,9 @@
       <ul>
     <% if signed_in? %>
       <% if current_user.face_image_url(:header_thumb).to_s.empty? %>
-      <li><%= image_tag "dummy_img40.gif", size: "40x40" %><%= current_user.name %></li>
+      <li><%= link_to(image_tag("dummy_img40.gif", size: "40x40"), user_path(current_user)) %><%= link_to(current_user.name, user_path(current_user)) %></li>
       <% else %>
-      <li><%= image_tag current_user.face_image_url(:header_thumb).to_s, size: "40x40" %><%= current_user.name %></li>
+      <li><%= link_to(image_tag(current_user.face_image_url(:header_thumb).to_s, size: "40x40"), user_path(current_user)) %><%= link_to(current_user.name, user_path(current_user)) %></li>
       <% end %>
       <li><%= link_to "みんな", users_path %></li>
       <li><%= link_to "自分のプロフィール", user_path(current_user) %></li>
