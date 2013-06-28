@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% unless request.path_info == signin_path %>
   <header>
     <div class="wrap">
     <%= link_to(content_tag(:div, "", :class => 'logo'), users_path) if request.path_info != signin_path %>
@@ -29,6 +30,7 @@
   </div>
   </div>
   </header>
+  <% end %>
 <div id="content">
 <%= yield %>
 </div>
