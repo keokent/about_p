@@ -5,7 +5,7 @@ ja:
       section: 部署
     attributes:
       user:
-        name: お名前
+        name: 名前
         job_type: 職種
         section: 部署
         section_id: 部署
@@ -16,17 +16,17 @@ ja:
         birthplace: 出身地
         background: 経歴を教えてください！
         ppb_carrier: ペパボでは何をしてきましたか？
-        hometown: 今のお住まいはどこですか？
+        hometown: どこに住んでますか？
         hobby: 趣味は何ですか？
         favorite_food: すきな食べ物は何ですか？
         favorite_book: すきな本は何ですか？
         club: 昔やってた部活は何ですか？
-        strong_point: 私はペパボで一番○○なことを教えてください！
-        free_space: その他に伝えたいことをどうぞ！
+        strong_point: 私はペパボで一番○○です
+        free_space: なにか一言！
         married: 結婚してますか？
         ppb_join: 入社時期はいつですか？
         twitter_id: Twitterアカウント
-        blog_url: ブログURL
+        blog_url: ブログやHPのURL
       section:
         name: 部署名
   enumerize:
