@@ -3,7 +3,7 @@
     <p><%= link_to "プロフィールを編集", edit_user_path(current_user) %></p>
   <% end %>
   <div class="pro_img">
-<%= image_tag @user.face_image_url(:profile_thumb).to_s, :size => "180" %>
+<%= image_tag @user.face_image_url(:profile_thumb).to_s, :width => "180" %>
   </div>
 
 <div class="pro_text">
