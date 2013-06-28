@@ -6,9 +6,10 @@
            <ul>
             <% section.users.each do |user| %>
 	      <% if user.face_image_url(:index_thumb).to_s.empty? %>
-              <li><%= image_tag "dummy_img60.gif", :size => "60x60" %><%= link_to user.name, user %></li>
+
+              <li><%= link_to(image_tag("dummy_img60.gif", :size => "60x60"), user_path(user)) %><%= link_to user.name, user %></li>
 	      <% else %>
-              <li><%= image_tag user.face_image_url(:index_thumb).to_s, :size => "60x60" %><%= link_to user.name, user %></li>
+              <li><%= link_to(image_tag(user.face_image_url(:index_thumb).to_s, :size => "60x60"), user_path(user)) %><%= link_to user.name, user %></li>
 	      <% end %>
           <% end %>
          </ul>
