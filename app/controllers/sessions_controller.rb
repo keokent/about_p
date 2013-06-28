@@ -6,8 +6,7 @@ class SessionsController < ApplicationController
 
   def callback
     auth = request.env["omniauth.auth"]
-    members = JSON.parse(open("#{Rails.root}/tmp/ppb_members.json").read)
-    unless members.has_key? auth["info"]["nickname"]
+    unless GithubMember.paperboy? auth["info"]["nickname"]
       redirect_to signin_path
       return
     end
