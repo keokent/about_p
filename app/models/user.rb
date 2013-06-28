@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     self.remember_token = SecureRandom.urlsafe_base64
   end
 
-  enumerize :job_type, :in => [:engineer, :designer, :backoffice, :manager, :producer]
+  enumerize :job_type, :in => [:engineer, :designer, :director, :backoffice, :producer, :manager, :officer]
 
   mount_uploader :face_image, FaceImageUploader
 end
