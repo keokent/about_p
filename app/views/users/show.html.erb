@@ -3,7 +3,11 @@
     <p><%= link_to "プロフィールを編集", edit_user_path(current_user) %></p>
   <% end %>
   <div class="pro_img">
+<% if @user.face_image_url(:profile_thumb).to_s.empty? %>
+<%= image_tag "dummy_img180.gif", :width => "180" %>
+<% else %>
 <%= image_tag @user.face_image_url(:profile_thumb).to_s, :width => "180" %>
+<% end %>
   </div>
 
 <div class="pro_text">
