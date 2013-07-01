@@ -12,6 +12,11 @@ namespace :db do
     end
   end
 
+  desc "make promotion strategy section"
+  task generate_promotion: :environment do
+    Section.create(name: "プロモーション戦略部")
+  end 
+
   desc "make dummy with users data"
   task generate_dummy_users: :environment do
     14.times do |n|
