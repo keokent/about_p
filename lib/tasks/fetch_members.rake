@@ -3,10 +3,12 @@ namespace :tmp do
   task fetch_members: :environment do
     require 'open-uri'
     members_ssv = open("https://raw.github.com/paperboy-all/all/master/github/members.txt?login=kitak&token=#{ENV['FETCH_TOKEN']}").read
+    puts members_ssv
     members = {} 
     members_ssv.split("\n").each do |line|
       tmp = line.split(' ')
       next if tmp.size == 1
+      next if tmp[1..-1] == nil
       members[tmp[0]] = tmp[1..-1].join("")
     end
     open("#{Rails.root}/tmp/ppb_members.json", "w").write members.to_json
