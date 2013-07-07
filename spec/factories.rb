@@ -10,6 +10,7 @@ FactoryGirl.define do
     sequence(:nickname) { |n| "nickname#{n}" }
     sequence(:irc_name) { |n| "irc_name#{n}" }
     sequence(:github_uid) { |n| "00#{n}" } 
+    sequence(:github_name) { |n| "github00#{n}" } 
     job_type :engineer
   end 
 end

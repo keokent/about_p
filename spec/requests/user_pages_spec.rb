@@ -18,10 +18,21 @@ describe "UserPages" do
   
   describe "index" do
     let(:user) { FactoryGirl.create(:user, github_uid: "12345") }
-    before { sign_in user } 
+    before do
+      9.times do
+        FactoryGirl.create(:user)
+      end
+      sign_in user
+    end
+
 
     it "「みんな」とメッセージが表示されるべき" do
       expect(page).to have_content('みんな')
+    end
+
+    it "登録ユーザ数が表示されるべき" do
+      expect(page).to have_selector(".total_number")
+      expect(page).to have_content('10')
     end
   end
 
