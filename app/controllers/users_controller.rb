@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
+    @total_number = User.all.size
     @sections = Section.all
   end
 
