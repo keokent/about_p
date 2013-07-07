@@ -1,18 +1,18 @@
 <h2>みんな</h2>
 <div class="everyone">
   <% @sections.each do |section| %>
-      <div class="section_box">
-        <p class="section_name"><%= section.name %></p>
-           <ul>
-            <% section.users.each do |user| %>
-	      <% if user.face_image_url(:index_thumb).to_s.empty? %>
+    <div class="section_box">
+      <p class="section_name"><%= section.name %></p>
+      <ul>
+        <% section.users.each do |user| %>
+          <% if user.face_image_url(:index_thumb).to_s.empty? %>
 
-              <li><%= link_to(image_tag("dummy_img60.gif", :size => "60x60"), user_path(user)) %><%= link_to user.name, user %></li>
-	      <% else %>
-              <li><%= link_to(image_tag(user.face_image_url(:index_thumb).to_s, :size => "60x60"), user_path(user)) %><%= link_to user.name, user %></li>
-	      <% end %>
+            <li><%= link_to(image_tag("dummy_img60.gif", :size => "60x60"), user_path(user)) %><%= link_to user.name, user %></li>
+          <% else %>
+            <li><%= link_to(image_tag(user.face_image_url(:index_thumb).to_s, :size => "60x60"), user_path(user)) %><%= link_to user.name, user %></li>
           <% end %>
-         </ul>
-      </div>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 </div>
