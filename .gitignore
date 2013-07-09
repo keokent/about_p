@@ -19,7 +19,6 @@
 .project
 .DS_Store
 .idea
-/bin
 
 # Github oauth tokens
 /config/github_tokens.yml
