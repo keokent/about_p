@@ -1,5 +1,5 @@
 module AboutP
-  module Utilities
+  module Utils
     def ikachan(message)
       # sqaleブランチで実装する
     end
