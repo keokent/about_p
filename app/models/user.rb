@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include AboutP::Utilities
+  include AboutP::Utils
   extend Enumerize
 
   belongs_to :section
