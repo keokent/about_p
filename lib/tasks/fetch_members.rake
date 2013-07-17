@@ -7,6 +7,7 @@ namespace :tmp do
     members_ssv.split("\n").each do |line|
       tmp = line.split(' ')
       next if tmp.size == 1
+      next if tmp[1..-1] == nil
       members[tmp[0]] = tmp[1..-1].join("")
     end
     open("#{Rails.root}/tmp/ppb_members.json", "w").write members.to_json
