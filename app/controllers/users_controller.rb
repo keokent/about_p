@@ -44,8 +44,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.section = Section.find_by(id: params[:user][:section])
-    @user.save
-    sign_in @user
     if @user.update_attributes(user_params)
       sign_in @user
       flash[:success] = "プロフィールを更新しました"
