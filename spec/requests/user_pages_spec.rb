@@ -130,6 +130,36 @@ describe "UserPages" do
       it { should have_content(user.strong_point) }
       it { should have_content(user.free_space) }
     end
+
+    context "/users/:nick でアクセスしたとき" do
+      before do
+        visit user_path(user.nickname)
+      end
+      
+      describe "ユーザの登録情報が表示されているべき" do
+        it { should have_content(user.name) }
+        it { should have_content(user.nickname) }
+        it { should have_content(user.irc_name) }
+        it { should have_selector("img[src='#{user.face_image_url(:profile_thumb).to_s}']") }
+        it { should have_content(user.section.name) }
+        it { should have_content(user.job_type_text) }
+        it { should have_content(user.birthday) }
+        it { should have_content(user.birthplace) }
+        it { should have_content(user.married) }
+        it { should have_content(user.background) }
+        it { should have_content(user.ppb_join) }
+        it { should have_content(user.ppb_carrier) }
+        it { should have_content(user.hometown) }
+        it { should have_content(user.twitter_id) }
+        it { should have_content(user.blog_url) }
+        it { should have_content(user.hobby) }
+        it { should have_content(user.favorite_food) }
+        it { should have_content(user.favorite_book) }
+        it { should have_content(user.club) }
+        it { should have_content(user.strong_point) }
+        it { should have_content(user.free_space) }
+      end
+    end
   end
 
   describe "edit" do
