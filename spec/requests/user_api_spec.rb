@@ -122,5 +122,12 @@ describe "User API" do
         expect(last_response.status).to eq 403
       end
     end
+
+    context "間違えたAPIキーをヘッダーに渡したとき" do
+      it "ステータスコードは403になる" do
+        get '/users/search.json', {'query' => 'kitak'}, {'X-AboutP-API-Key' => 'abcdef'}
+        expect(last_response.status).to eq 403
+      end
+    end
   end
 end
