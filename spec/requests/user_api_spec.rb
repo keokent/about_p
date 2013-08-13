@@ -19,7 +19,7 @@ describe "User API" do
   describe "/search.json" do
     context "APIキーをヘッダーに渡したとき" do
       it "ステータスコードは200になる" do
-        get '/users/search.json', {}, {'HTTP_ABOUT_P_API_KEY' => 'hogehoge'}
+        get '/users/search.json', {}, {'X-AboutP-API-Key' => '12345'}
         expect(last_response.status).to eq 200
       end
     end
