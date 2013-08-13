@@ -55,7 +55,15 @@ class UsersController < ApplicationController
   end
 
   def search
-    render :json => {}
+    query_value = "#{params[:query]}%"
+    columns = [:name, :nickname, :irc_name, :github_name]
+    where_statement =
+      columns.map { |column|
+        "#{column} like ?"
+      }.join(' or ')
+    users = User.where(where_statement, *(Array.new(4) { query_value }))
+                .map { |user| user.slice(*columns) }
+    render :json => users
   end
 
   private
