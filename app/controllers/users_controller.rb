@@ -106,7 +106,7 @@ class UsersController < ApplicationController
   end
 
   def api_key
-    api_key = request.env["X-AboutP-API-Key"]
+    api_key = request.env["HTTP_X_ABOUTP_API_KEY"]
     unless api_key && APIKey.authenticate(api_key)
       render :status => 403, :nothing => true
     end

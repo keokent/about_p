@@ -35,7 +35,7 @@ describe "User API" do
   describe "/search.json" do
     context "APIキーをヘッダーに渡したとき" do
       before do
-        get '/users/search.json', {'query' => 'kitak'}, {'X-AboutP-API-Key' => '12345'}
+        get '/users/search.json', {'query' => 'kitak'}, {"HTTP_X_ABOUTP_API_KEY" => '12345'}
       end
 
       it "ステータスコードは200になる" do
@@ -79,54 +79,54 @@ describe "User API" do
         end
 
         it "「kit」で検索すると二件ヒットする" do
-          get '/users/search.json', {'query' => 'kit'}, {'X-AboutP-API-Key' => '12345'}
+          get '/users/search.json', {'query' => 'kit'}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
           result = JSON.parse(last_response.body)
           expect(result.size).to eq 2
         end
 
         it "「kita」で検索すると一件ヒットする" do
-          get '/users/search.json', {'query' => 'kita'}, {'X-AboutP-API-Key' => '12345'}
+          get '/users/search.json', {'query' => 'kita'}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
           result = JSON.parse(last_response.body)
           expect(result.size).to eq 1
         end
 
         it "「あんちぽ」で検索すると一件ヒットする" do
-          get '/users/search.json', {'query' => 'あんちぽ'}, {'X-AboutP-API-Key' => '12345'}
+          get '/users/search.json', {'query' => 'あんちぽ'}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
           result = JSON.parse(last_response.body)
           expect(result.size).to eq 1
         end
 
         it "「たけー」で検索するとヒットしない" do
-          get '/users/search.json', {'query' => 'たけー'}, {'X-AboutP-API-Key' => '12345'}
+          get '/users/search.json', {'query' => 'たけー'}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
           result = JSON.parse(last_response.body)
           expect(result.size).to eq 0
         end
 
         it "「key」で検索するとヒットしない" do
-          get '/users/search.json', {'query' => 'key'}, {'X-AboutP-API-Key' => '12345'}
+          get '/users/search.json', {'query' => 'key'}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
           result = JSON.parse(last_response.body)
           expect(result.size).to eq 0
         end
 
         it "「くうちゃん」で検索するとヒットしない" do
-          get '/users/search.json', {'query' => 'くうちゃん'}, {'X-AboutP-API-Key' => '12345'}
+          get '/users/search.json', {'query' => 'くうちゃん'}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
           result = JSON.parse(last_response.body)
           expect(result.size).to eq 0
         end
 
         context "クエリーが不正の場合" do
           it "クエリーのパラメータがない場合、ステータスコードは403になる" do
-            get '/users/search.json', {}, {'X-AboutP-API-Key' => '12345'}
+            get '/users/search.json', {}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
             expect(last_response.status).to eq 403
           end
 
           it "クエリーが空の場合、ステータスコードは403になる" do
-            get '/users/search.json', {'query' => ''}, {'X-AboutP-API-Key' => '12345'}
+            get '/users/search.json', {'query' => ''}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
             expect(last_response.status).to eq 403
           end
 
           it "クエリーが二文字の場合、ステータスコードは403になる" do
-            get '/users/search.json', {'query' => 'ab'}, {'X-AboutP-API-Key' => '12345'}
+            get '/users/search.json', {'query' => 'ab'}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
             expect(last_response.status).to eq 403
           end
         end
@@ -142,7 +142,7 @@ describe "User API" do
 
     context "間違えたAPIキーをヘッダーに渡したとき" do
       it "ステータスコードは403になる" do
-        get '/users/search.json', {'query' => 'kitak'}, {'X-AboutP-API-Key' => 'abcdef'}
+        get '/users/search.json', {'query' => 'kitak'}, {'HTTP_X_ABOUTP_API_KEY' => 'abcdef'}
         expect(last_response.status).to eq 403
       end
     end
