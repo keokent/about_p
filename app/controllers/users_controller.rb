@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 class UsersController < ApplicationController
-  before_action :halfway_creation, except: [:new, :create] 
+  before_action :halfway_creation, except: [:new, :create]
   before_action :ppb_member, only: [:new, :create]
   before_action :no_signed_in_user, only: [:new, :create]
   before_action :through_github, only: [:new, :create]
   before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show]
   before_action :correct_user, only: [:edit, :update]
+  before_action :api_key, only: [:search]
+  before_action :too_short_query, only: [:search]
 
   def index
     @sections = Section.all
@@ -53,13 +55,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    query_value = "#{params[:query]}%"
+    columns = [:name, :nickname, :irc_name, :github_name]
+    where_statement =
+      columns.map { |column|
+        "#{column} like ?"
+      }.join(' or ')
+    users = User.where(where_statement, *(Array.new(4) { query_value }))
+                .map { |user| user.slice(*columns) }
+    render :json => users
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :nickname, :irc_name, :face_image, :job_type,  :birthday, :birthplace, :married, :background, :ppb_join, :ppb_carrier, :hometown, :twitter_id, :blog_url, :hobby, :favorite_food, :favorite_book, :club, :strong_point, :free_space) 
+    params.require(:user).permit(:name, :nickname, :irc_name, :face_image, :job_type,  :birthday, :birthplace, :married, :background, :ppb_join, :ppb_carrier, :hometown, :twitter_id, :blog_url, :hobby, :favorite_food, :favorite_book, :club, :strong_point, :free_space)
   end
   # Before actions
-  
+
   def signed_in_user
     redirect_to signin_url, notice: "サインインしてください" unless signed_in?
   end
@@ -67,13 +81,13 @@ class UsersController < ApplicationController
   def no_signed_in_user
     redirect_to users_path if signed_in?
   end
-  
+
   def ppb_member
     if GithubMember.paperboy? session[:github_nickname]
-      session[:realname] = GithubMember.all[session[:github_nickname]] 
+      session[:realname] = GithubMember.all[session[:github_nickname]]
     else
       flash[:error] = "ペパボの人じゃないひとは入れません！"
-      redirect_to signin_path 
+      redirect_to signin_path
     end
   end
 
@@ -87,7 +101,20 @@ class UsersController < ApplicationController
     redirect_to(new_user_path) if session[:github_uid] != nil && user == nil
   end
 
-  def through_github 
+  def through_github
     redirect_to(signin_path) unless session[:github_uid]
+  end
+
+  def api_key
+    api_key = request.env["X-AboutP-API-Key"]
+    unless api_key && APIKey.authenticate(api_key)
+      render :status => 403, :nothing => true
+    end
+  end
+
+  def too_short_query
+    if params[:query].blank? || params[:query].size < 3
+      render :status => 403, :nothing => true
+    end
   end
 end

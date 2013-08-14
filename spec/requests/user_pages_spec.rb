@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
-	
+
 describe "UserPages" do
-  
+
   before do
     %w(ホスティング事業本部 ロリポップ！ ムームードメイン インフラチーム
        福岡カスタマーサービス minne 福岡支社付 EC事業本部 カラーミーショップ
-       カラメル 運営支援 グーペ ECカスタマーサービス メディア事業本部 JUGEM heteml 
+       カラメル 運営支援 グーペ ECカスタマーサービス メディア事業本部 JUGEM heteml
        スマホサービス 事業開発 petit 経営管理本部 法務 総務 経理財務
        情報システム部 人材開発本部 国際化推進室 ジュゲムカート 内部監査室
        社長室 技術基盤 ブクログ).each do |name|
@@ -15,17 +15,17 @@ describe "UserPages" do
   end
 
   subject { page }
-  
+
   describe "index" do
     let(:user) { FactoryGirl.create(:user, github_uid: "12345") }
-    before { sign_in user } 
+    before { sign_in user }
 
     it "「みんな」とメッセージが表示されるべき" do
       expect(page).to have_content('みんな')
     end
   end
 
-  describe "new" do 
+  describe "new" do
     before { sign_in }
 
     describe "no user" do
@@ -79,9 +79,9 @@ describe "UserPages" do
       end
 
       describe  "プロフィールページで" do
-        let(:user) { User.find_by(irc_name: 'kita_k') }       
+        let(:user) { User.find_by(irc_name: 'kita_k') }
         before { visit user_path(user) }
-        
+
         it "GitHub名が自動的に表示されているべき" do
           expect(page).to have_content('kitak')
         end
@@ -101,12 +101,12 @@ describe "UserPages" do
                                     favorite_book: "ぺぱぼん", club: "バレーボール部",
                                     strong_point: "長所は", free_space: "ここはフリー欄です")
     }
-    
+
     before do
       sign_in user
       visit user_path(user)
     end
-    
+
     describe "ユーザの登録情報が表示されているべき" do
       it { should have_content(user.name) }
       it { should have_content(user.nickname) }
@@ -135,7 +135,7 @@ describe "UserPages" do
       before do
         visit user_path(user.nickname)
       end
-      
+
       describe "ユーザの登録情報が表示されているべき" do
         it { should have_content(user.name) }
         it { should have_content(user.nickname) }
@@ -175,7 +175,7 @@ describe "UserPages" do
                                     hometown: "渋谷")
       sign_in @user
       visit edit_user_path(@user)
-    end 
+    end
 
     it { should have_button(update_button_text) }
     it { should have_selector("input#user_name[value='喜多啓介']")}
@@ -183,7 +183,7 @@ describe "UserPages" do
     context "項目に正しいデータを入力して更新ボタンを押したとき" do
       before do
         fill_in "どこに住んでますか？", with: new_hometown
-        click_button update_button_text 
+        click_button update_button_text
       end
 
       it "データベースの値が更新されるべき" do
@@ -219,24 +219,24 @@ describe "UserPages" do
                                       irc_name: "kitak",
                                       hometown: "渋谷")
         sign_in @user
-      end 
+      end
 
       it "トップページにいるときにロゴをクリックしたらトップページへ移動する" do
         visit users_path
         find(logo_link_selector).click
-        expect(page).to have_content('みんな') 
+        expect(page).to have_content('みんな')
       end
 
       it "プロフィールページにいるときにロゴをクリックしたらトップページへ移動する" do
         visit user_path(@user)
         find(logo_link_selector).click
-        expect(page).to have_content('みんな') 
+        expect(page).to have_content('みんな')
       end
 
       it "プロフィール編集ページにいるときにロゴをクリックしたらトップページへ移動する" do
         visit user_path(@user)
         find(logo_link_selector).click
-        expect(page).to have_content('みんな') 
+        expect(page).to have_content('みんな')
       end
     end
 
