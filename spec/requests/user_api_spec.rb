@@ -113,23 +113,6 @@ describe "User API" do
           result = JSON.parse(last_response.body)
           expect(result.size).to eq 0
         end
-
-        context "クエリーが不正の場合" do
-          it "クエリーのパラメータがない場合、ステータスコードは403になる" do
-            get '/users/search.json', {}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
-            expect(last_response.status).to eq 403
-          end
-
-          it "クエリーが空の場合、ステータスコードは403になる" do
-            get '/users/search.json', {'query' => ''}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
-            expect(last_response.status).to eq 403
-          end
-
-          it "クエリーが二文字の場合、ステータスコードは403になる" do
-            get '/users/search.json', {'query' => 'ab'}, {'HTTP_X_ABOUTP_API_KEY' => '12345'}
-            expect(last_response.status).to eq 403
-          end
-        end
       end
     end
 

@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show]
   before_action :correct_user, only: [:edit, :update]
   before_action :api_key, only: [:search]
-  before_action :too_short_query, only: [:search]
 
   def index
     @sections = Section.all
@@ -108,12 +107,6 @@ class UsersController < ApplicationController
   def api_key
     api_key = request.env["HTTP_X_ABOUTP_API_KEY"]
     unless api_key && APIKey.authenticate(api_key)
-      render :status => 403, :nothing => true
-    end
-  end
-
-  def too_short_query
-    if params[:query].blank? || params[:query].size < 3
       render :status => 403, :nothing => true
     end
   end
