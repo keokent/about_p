@@ -15,7 +15,50 @@ namespace :db do
   desc "make promotion strategy section"
   task generate_promotion: :environment do
     Section.create(name: "プロモーション戦略部")
-  end 
+  end
+
+  desc "alter section name 2013-08-01"
+  task alter_section_name20130801: :environment do
+    ActiveRecord::Base.transaction do
+      section_pairs = [["ホスティング事業本部", "ホスティング事業部"],
+                       ["インフラチーム",      "福岡インフラチーム"],
+                       ["EC事業本部",         "EC事業部"],
+                       ["メディア事業本部",    "メディア事業部"],
+                       ["事業開発",           "本社事業部"],
+                       ["経営管理本部",       "コーポレート部"],
+                       ["総務",              "総務経理"],
+                       ["社長室",            "経営企画"],
+                       ["人材開発本部",       "人材開発"],
+                       ["国際化推進室",       "国際化推進部"]]
+
+      section_pairs.each do |before, after|
+        section = Section.find_by(name: before)
+        section.name = after
+        if ENV['MODE']=='dryrun'
+          puts "#{before} to #{after}"
+          puts section.inspect
+        else     
+          section.save!
+        end
+      end
+
+      %w(福岡アプリ開発チーム 30days\ Album ECインフラチーム).each do |name|
+        if ENV['MODE']=='dryrun'
+          puts "create #{name}"
+        else
+          Section.create(name: name)
+        end
+      end
+
+      section = Section.find_by(name: "経理財務")
+      if ENV['MODE']=='dryrun'
+        puts "destroy #{section.name}"
+      else
+        section.destroy
+      end
+    end
+    puts "complete!!"
+  end
 
   desc "make dummy with users data"
   task generate_dummy_users: :environment do
