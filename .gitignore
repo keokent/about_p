@@ -22,6 +22,8 @@
 
 # Github oauth tokens
 /config/github_tokens.yml
+# newrelic config
+/config/newrelic.yml
 
 # Carrierwave
 /public/uploads
