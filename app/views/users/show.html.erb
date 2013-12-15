@@ -40,7 +40,7 @@
 <li><p class="q"><%= t("activerecord.attributes.user.twitter_id") %></p><%= @user.twitter_id %></li>
 <% end %>
 <% if @user.blog_url.present? %>
-<li><p class="q"><%= t("activerecord.attributes.user.blog_url") %></p><%= simple_format(@user.blog_url) %></li>
+<li><p class="q"><%= t("activerecord.attributes.user.blog_url") %></p><%= link_to(@user.blog_url, @user.blog_url) %></li>
 <% end %>
 <% if @user.hobby.present? %>
 <li><p class="q"><%= t("activerecord.attributes.user.hobby") %></p><%= simple_format(@user.hobby) %></li>
