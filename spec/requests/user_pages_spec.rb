@@ -122,7 +122,7 @@ describe "UserPages" do
       it { should have_content(user.ppb_carrier) }
       it { should have_content(user.hometown) }
       it { should have_content(user.twitter_id) }
-      it { should have_content(user.blog_url) }
+      it { should have_selector("a[href='#{user.blog_url}']") }
       it { should have_content(user.hobby) }
       it { should have_content(user.favorite_food) }
       it { should have_content(user.favorite_book) }
