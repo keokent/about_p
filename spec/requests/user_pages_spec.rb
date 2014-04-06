@@ -96,7 +96,7 @@ describe "UserPages" do
                                     married: "未婚", background: "ペパボ大学出身",
                                     ppb_join: "2013年", ppb_carrier: "研修中",
                                     hometown: "渋谷", twitter_id: "pepabo",
-                                    blog_url: "http://www.paperboy.co.jp/",
+                                    blog_url: "http://pepabo.com/",
                                     hobby: "インターネット", favorite_food: "からあげ",
                                     favorite_book: "ぺぱぼん", club: "バレーボール部",
                                     strong_point: "長所は", free_space: "ここはフリー欄です")

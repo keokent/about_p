@@ -2,7 +2,7 @@ namespace :tmp do
   desc "Fetch paparboy's members"
   task fetch_members: :environment do
     require 'open-uri'
-    members_ssv = open("https://raw.github.com/paperboy-all/all/master/github/members.txt?login=kitak&token=#{ENV['FETCH_TOKEN']}").read
+    members_ssv = open("https://raw.github.com/pepabo/all/master/github/members.txt?login=kitak&token=#{ENV['FETCH_TOKEN']}").read
     members = {} 
     members_ssv.split("\n").each do |line|
       tmp = line.split(' ')
